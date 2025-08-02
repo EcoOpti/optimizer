@@ -12,141 +12,220 @@
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJQVEQXF3M"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer ||
+[];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
       gtag('config', 'G-QJQVEQXF3M');
-    </script>
+</script>
 
     <style>
         :root {
             --primary: #22c55e;
-            --text: #1e293b;
+--text: #1e293b;
             --gray: #e2e8f0;
             --white: #ffffff;
             --card-bg: rgba(255, 255, 255, 0.9);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --border-radius-xl: 0.75rem; /* 12px */
-            --border-radius-lg: 0.5rem; /* 8px */
+--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+--border-radius-xl: 0.75rem; /* 12px */
+            --border-radius-lg: 0.5rem;
+/* 8px */
             --text-gray-900: #111827;
             --text-gray-600: #4b5563;
             --text-gray-500: #6b7280;
-            --text-green-600: #16a34a;
+--text-green-600: #16a34a;
             --text-blue-600: #2563eb;
             --text-red-600: #dc2626;
             --text-emerald-600: #059669;
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
+background-color: #f8fafc; /* slate-50 */
         }
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box;
+}
         #analysis-view body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-image: linear-gradient(to bottom right, #ecfdf5, #ffffff, #eff6ff);
+background-image: linear-gradient(to bottom right, #ecfdf5, #ffffff, #eff6ff);
             color: var(--text-gray-900);
             padding: 24px;
             min-height: 100vh;
-        }
-        #analysis-view .main-container { max-width: 1280px; margin: auto; }
-        #analysis-view .grid-container { display: grid; gap: 24px; margin-bottom: 32px; }
-        #analysis-view .metrics-grid { grid-template-columns: repeat(1, 1fr); }
-        #analysis-view .charts-grid { grid-template-columns: repeat(1, 1fr); }
-        @media (min-width: 768px) { #analysis-view .metrics-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (min-width: 1024px) { #analysis-view .charts-grid { grid-template-columns: repeat(2, 1fr); } }
+}
+        #analysis-view .main-container { max-width: 1280px; margin: auto;
+}
+        #analysis-view .grid-container { display: grid; gap: 24px; margin-bottom: 32px;
+}
+        #analysis-view .metrics-grid { grid-template-columns: repeat(1, 1fr);
+}
+        #analysis-view .charts-grid { grid-template-columns: repeat(1, 1fr);
+}
+        @media (min-width: 768px) { #analysis-view .metrics-grid { grid-template-columns: repeat(4, 1fr);
+} }
+        @media (min-width: 1024px) { #analysis-view .charts-grid { grid-template-columns: repeat(2, 1fr);
+} }
         #analysis-view .card {
             background-color: var(--card-bg);
-            border-radius: var(--border-radius-xl);
+border-radius: var(--border-radius-xl);
             box-shadow: var(--shadow-lg);
             border: 0;
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
             display: flex;
             flex-direction: column;
-        }
-        #analysis-view .card-header, #analysis-view .card-content { padding: 24px; }
-        #analysis-view .card-content { flex-grow: 1; }
-        #analysis-view .card-title { display: flex; align-items: center; gap: 8px; font-size: 1.125rem; font-weight: 600; }
-        #analysis-view .metric-card-content { text-align: center; }
-        #analysis-view .metric-icon-wrapper { width: 48px; height: 48px; margin: 0 auto 16px; border-radius: var(--border-radius-xl); display: flex; align-items: center; justify-content: center; }
-        #analysis-view .metric-value { font-size: 1.875rem; font-weight: 700; margin-bottom: 4px; }
-        #analysis-view .metric-title { font-weight: 600; margin-bottom: 4px; }
-        #analysis-view .metric-subtitle { font-size: 0.875rem; color: var(--text-gray-500); }
-        #analysis-view .bg-red-50 { background-color: #fef2f2; }
-        #analysis-view .text-red-600 { color: #dc2626; }
-        #analysis-view .bg-green-50 { background-color: #f0fdf4; }
-        #analysis-view .text-green-600 { color: #16a34a; }
-        #analysis-view .bg-emerald-50 { background-color: #ecfdf5; }
-        #analysis-view .text-emerald-600 { color: #059669; }
-        #analysis-view .bg-blue-50 { background-color: #eff6ff; }
-        #analysis-view .text-blue-600 { color: #2563eb; }
-        #analysis-view .chart-wrapper { position: relative; width: 100%; }
-        #analysis-view .bar-chart-wrapper { height: 250px; }
-        #analysis-view .pie-chart-wrapper { height: 200px; }
-        #analysis-view .line-chart-wrapper { height: 200px; }
-        #analysis-view h4 { font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-        #analysis-view .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; justify-content: center; padding: 0; }
-        #analysis-view .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; }
-        #analysis-view .legend-color { width: 12px; height: 12px; border-radius: 50%; }
-        #analysis-view .savings-projection-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-        #analysis-view .savings-box { text-align: center; padding: 16px; border-radius: var(--border-radius-xl); }
-        #analysis-view .savings-value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .animate-rotate { animation: rotate 2s linear infinite; }
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .animate-spin { animation: spin 1s linear infinite; }
-        @keyframes pulse { 50% { opacity: .5; } }
-        .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-        @keyframes pulse-scale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-        .animate-pulse-scale { animation: pulse-scale 1s ease-in-out infinite; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.5s ease, transform 0.5s ease; }
-        .fade-in-scale.visible { opacity: 1; transform: scale(1); }
-        @keyframes fade-in-out { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
-        .animate-fade-in-out { animation: fade-in-out 2s infinite; }
-        @keyframes slide-in { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
-        .step-animation { animation: slide-in 0.6s ease-out forwards; opacity: 0; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+}
+        #analysis-view .card-header, #analysis-view .card-content { padding: 24px;
+}
+        #analysis-view .card-content { flex-grow: 1;
+}
+        #analysis-view .card-title { display: flex; align-items: center; gap: 8px; font-size: 1.125rem;
+font-weight: 600; }
+        #analysis-view .metric-card-content { text-align: center;
+}
+        #analysis-view .metric-icon-wrapper { width: 48px; height: 48px; margin: 0 auto 16px;
+border-radius: var(--border-radius-xl); display: flex; align-items: center; justify-content: center; }
+        #analysis-view .metric-value { font-size: 1.875rem;
+font-weight: 700; margin-bottom: 4px; }
+        #analysis-view .metric-title { font-weight: 600; margin-bottom: 4px;
+}
+        #analysis-view .metric-subtitle { font-size: 0.875rem; color: var(--text-gray-500);
+}
+        #analysis-view .bg-red-50 { background-color: #fef2f2;
+}
+        #analysis-view .text-red-600 { color: #dc2626;
+}
+        #analysis-view .bg-green-50 { background-color: #f0fdf4;
+}
+        #analysis-view .text-green-600 { color: #16a34a;
+}
+        #analysis-view .bg-emerald-50 { background-color: #ecfdf5;
+}
+        #analysis-view .text-emerald-600 { color: #059669;
+}
+        #analysis-view .bg-blue-50 { background-color: #eff6ff;
+}
+        #analysis-view .text-blue-600 { color: #2563eb;
+}
+        #analysis-view .chart-wrapper { position: relative; width: 100%;
+}
+        #analysis-view .bar-chart-wrapper { height: 250px;
+}
+        #analysis-view .pie-chart-wrapper { height: 200px;
+}
+        #analysis-view .line-chart-wrapper { height: 200px;
+}
+        #analysis-view h4 { font-weight: 600; margin-bottom: 16px; display: flex; align-items: center;
+gap: 8px; }
+        #analysis-view .legend { display: flex; flex-wrap: wrap; gap: 12px;
+margin-top: 16px; justify-content: center; padding: 0; }
+        #analysis-view .legend-item { display: flex;
+align-items: center; gap: 8px; font-size: 14px; }
+        #analysis-view .legend-color { width: 12px;
+height: 12px; border-radius: 50%; }
+        #analysis-view .savings-projection-grid { display: grid; grid-template-columns: repeat(2, 1fr);
+gap: 16px; }
+        #analysis-view .savings-box { text-align: center; padding: 16px; border-radius: var(--border-radius-xl);
+}
+        #analysis-view .savings-value { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px;
+}
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg);
+} }
+        .animate-rotate { animation: rotate 2s linear infinite;
+}
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg);
+} }
+        .animate-spin { animation: spin 1s linear infinite;
+}
+        @keyframes pulse { 50% { opacity: .5;
+} }
+        .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+        @keyframes pulse-scale { 0%, 100% { transform: scale(1);
+} 50% { transform: scale(1.2); } }
+        .animate-pulse-scale { animation: pulse-scale 1s ease-in-out infinite;
+}
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px);
+} to { opacity: 1; transform: translateY(0); } }
+        .fade-in-scale { opacity: 0;
+transform: scale(0.95); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in-scale.visible { opacity: 1;
+transform: scale(1); }
+        @keyframes fade-in-out { 0%, 100% { opacity: 0.5;
+} 50% { opacity: 1; } }
+        .animate-fade-in-out { animation: fade-in-out 2s infinite;
+}
+        @keyframes slide-in { from { opacity: 0; transform: translateX(-20px);
+} to { opacity: 1; transform: translateX(0); } }
+        .step-animation { animation: slide-in 0.6s ease-out forwards;
+opacity: 0; }
+        ::-webkit-scrollbar { width: 8px;
+}
+        ::-webkit-scrollbar-track { background: #f1f5f9;
+}
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px;
+}
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8;
+}
         .impact-grid {
             display: grid;
-            gap: 0.25rem 1rem; text-align: center; grid-template-columns: 1fr 1fr;
+gap: 0.25rem 1rem; text-align: center; grid-template-columns: 1fr 1fr;
             grid-template-areas: "val1 val2" "lab1 lab2" "val3 val4" "lab3 lab4";
-        }
-        @media (min-width: 768px) { .impact-grid { grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-areas: "val1 val2 val3 val4" "lab1 lab2 lab3 lab4"; } }
+}
+        @media (min-width: 768px) { .impact-grid { grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-areas: "val1 val2 val3 val4" "lab1 lab2 lab3 lab4"; } }
         .modal-bg {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0, 0, 0, 0.6); display: none; justify-content: center;
             align-items: center;
-            z-index: 10000;
+z-index: 10000;
         }
         .modal {
             background-color: var(--white);
-            border-radius: 2rem; padding: 2.5rem 2rem;
+border-radius: 2rem; padding: 2.5rem 2rem;
             width: 90%; max-width: 460px; box-shadow: 0 30px 50px rgba(0,0,0,0.2);
             position: relative; animation: fadeInUp 0.3s ease-out;
-            text-align: center;
+text-align: center;
         }
-        .modal img { width: 48px; margin: 0 auto 1.5rem; }
-        .modal h2 { font-size: 1.7rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text); }
-        .modal p { font-size: 1rem; color: #475569; line-height: 1.6; margin-bottom: 2rem; }
-        .modal input[type=email] { width: 100%; padding: 0.85rem; font-size: 1rem; border: 1px solid var(--gray); border-radius: 0.75rem; margin-bottom: 1.5rem; }
-        .modal .close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; color: #cbd5e1; cursor: pointer; }
+        .modal img { width: 48px; margin: 0 auto 1.5rem;
+}
+        .modal h2 { font-size: 1.7rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text);
+}
+        .modal p { font-size: 1rem; color: #475569; line-height: 1.6; margin-bottom: 2rem;
+}
+        .modal input[type=email] { width: 100%; padding: 0.85rem; font-size: 1rem;
+border: 1px solid var(--gray); border-radius: 0.75rem; margin-bottom: 1.5rem; }
+        .modal .close-btn { position: absolute;
+top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; color: #cbd5e1; cursor: pointer;
+}
         .modal .submit-btn {
             background-color: var(--primary);
-            color: var(--white); font-weight: 600;
+color: var(--white); font-weight: 600;
             padding: 0.85rem 1.25rem; border: none; border-radius: 9999px;
             width: 100%; font-size: 1rem; cursor: pointer; transition: background 0.2s;
-        }
-        .modal .submit-btn:hover { background-color: #15803d; }
-        .footer-note { font-size: 0.75rem; text-align: center; margin-top: 1.5rem; color: #94a3b8; }
+}
+        .modal .submit-btn:hover { background-color: #15803d;
+}
+        .footer-note { font-size: 0.75rem; text-align: center; margin-top: 1.5rem; color: #94a3b8;
+}
         /* Style for product dialog backdrop */
         .dialog-backdrop {
             background-color: rgba(0, 0, 0, 0.5);
+}
+        #chart-tooltip {
+            opacity: 0;
+position: absolute;
+            background: white;
+            color: #1f2937;
+border-radius: 0.5rem;
+padding: 0.75rem;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+transform: translate(-50%, -110%);
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+border: 1px solid #e5e7eb; /* border-gray-200 */
         }
     </style>
 </head>
@@ -158,42 +237,52 @@
         <aside id="sidebar" class="fixed inset-y-0 left-0 bg-white border-r border-slate-200 shadow-sm flex-col flex w-64 z-30 transform -translate-x-full lg:translate-x-0 lg:relative transition-transform duration-300 ease-in-out">
             
             <div class="p-4 flex flex-col items-center justify-center border-b border-slate-200">
-                <img src="EcoOpti - LOGO (2).png" alt="EcoOpti Logo" class="h-30 block rounded-full" style="height: 8rem;">
+     
+           <img src="EcoOpti - LOGO (2).png" alt="EcoOpti Logo" class="h-30 block rounded-full" style="height: 8rem;">
                 <p class="text-xs font-bold text-slate-800 mt-4">Smart Packaging Optimization</p>
             </div>
 
             <nav id="main-nav" class="flex-1 p-3 space-y-2">
                 <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider px-3 py-2">Menu</p>
-                <a href="#" id="nav-dashboard" class="nav-link flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
+     
+           <a href="#" id="nav-dashboard" class="nav-link flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                     <span>Dashboard</span>
-                </a>
+   
+             </a>
                 <a href="#" id="nav-optimizer" class="nav-link flex items-center gap-3 px-3 py-2.5 bg-green-50 text-green-700 font-semibold rounded-lg transition-colors">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 
+18h.01"/><path d="M8 18h.01"/></svg>
                     <span>Optimizer</span>
                 </a>
                 <a href="#" id="nav-analysis" class="nav-link flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" /><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 
+8 0 11-16 0z" /><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" /></svg>
                     <span>Analysis Results</span>
                 </a>
                 <a href="#" id="nav-history" class="nav-link flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                       <span>History</span>
                 </a>
                 <a href="#" id="nav-products" class="nav-link flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v2"/><path d="M21 14v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M3 10h18"/><path d="M12 10v4"/></svg>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v2"/><path d="M21 14v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M3 10h18"/><path d="M12 10v4"/></svg>
                     <span>Products</span>
                 </a>
-            </nav>
+         
+   </nav>
             <div class="border-t border-slate-200 p-4">
                  <div class="flex items-center gap-3">
                     <div class="w-9 h-9 bg-slate-300 rounded-full flex items-center justify-center">
                         <span class="text-slate-600 font-medium text-sm">G</span>
-                    </div>
+        
+            </div>
                     <div class="flex-1 min-w-0">
                        <p class="font-semibold text-slate-800 text-sm truncate">Gil Inc.</p>
                        <p class="text-xs text-slate-500 truncate">Workspace Admin</p>
-                    </div>
+           
+         </div>
                 </div>
             </div>
        </aside>
@@ -201,462 +290,668 @@
         <main class="flex-1 flex flex-col">
             <div class="flex items-center justify-between p-4 border-b border-slate-200 lg:hidden">
                 <button id="mobile-menu-button" class="text-slate-600 hover:text-slate-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
-                <div class="flex items-center gap-2">
+        
+        <div class="flex items-center gap-2">
                     <img src="EcoOpti - LOGO (2).png" alt="EcoOpti Logo" class="h-8">
                     <span class="text-lg font-semibold text-slate-800">EcoOpti</span>
                 </div>
                 <button id="close-menu-button" class="lg:hidden text-slate-500 hover:text-slate-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+   
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-            </div>
+       
+     </div>
              
             <div class="p-6 space-y-6">
                 <div id="optimizer-view" class="view-container">
                     <div>
                          <h1 class="text-3xl font-bold text-slate-800">Packaging Optimizer</h1>
-                         <p class="text-slate-500 mt-1">Find the most cost-effective and sustainable packaging for your products.</p>
+ 
+                        <p class="text-slate-500 mt-1">Find the most cost-effective and sustainable packaging for your products.</p>
                     </div>
     
                     <div class="grid lg:grid-cols-2 gap-8 items-start mt-6">
-                        <div class="bg-white shadow-sm rounded-lg border border-slate-200">
+                
+        <div class="bg-white shadow-sm rounded-lg border border-slate-200">
                              <div class="p-6 border-b border-slate-200">
-                                <h2 class="text-lg font-semibold">1. Select or Enter Product Details</h2>
+                                <h2 class="text-lg font-semibold">1.
+Select or Enter Product Details</h2>
                             </div>
                             <div class="p-6 space-y-4">
                                 <div class="space-y-2">
-                                    <label for="productSelect" class="text-sm font-medium text-slate-700">Select a Saved Product</label>
+     
+                               <label for="productSelect" class="text-sm font-medium text-slate-700">Select a Saved Product</label>
                                     <select id="productSelect" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
-                                        <option value="">Or enter details manually below...</option>
+                  
+                      <option value="">Or enter details manually below...</option>
                                         <option value="1">Premium Coffee Mug (SKU-001)</option>
-                                        <option value="2">Wireless Mouse (SKU-002)</option>
+                             
+           <option value="2">Wireless Mouse (SKU-002)</option>
                                         <option value="3">Hardcover Book (SKU-003)</option>
                                     </select>
-                                </div>
+       
+                         </div>
                                 <div class="space-y-2">
                                     <label for="productName" class="text-sm font-medium text-slate-700">Product Name</label>
-                                     <input id="productName" type="text" placeholder="e.g. Premium Coffee Mug" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
+ 
+                                    <input id="productName" type="text" placeholder="e.g.
+Premium Coffee Mug" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
                                 </div>
                                 <div class="grid grid-cols-3 gap-4">
-                                    <div class="space-y-2">
+                        
+            <div class="space-y-2">
                                         <label for="length" class="text-sm font-medium text-slate-700">Length (cm)</label>
-                                        <input id="length" type="number" placeholder="30" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                                        <input id="length" 
+type="number" placeholder="30" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
                                     </div>
                                     <div class="space-y-2">
-                                        <label for="width" class="text-sm font-medium text-slate-700">Width (cm)</label>
+                   
+                     <label for="width" class="text-sm font-medium text-slate-700">Width (cm)</label>
                                         <input id="width" type="number" placeholder="20" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
-                                    </div>
+                        
+            </div>
                                     <div class="space-y-2">
                                         <label for="height" class="text-sm font-medium text-slate-700">Height (cm)</label>
-                                        <input id="height" type="number" placeholder="10" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
+      
+                                  <input id="height" type="number" placeholder="10" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
                                     </div>
-                                </div>
+                    
+            </div>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div class="space-y-2">
-                                        <label for="weight" class="text-sm font-medium text-slate-700">Weight (g)</label>
+                
+                        <label for="weight" class="text-sm font-medium text-slate-700">Weight (g)</label>
                                         <input id="weight" type="number" placeholder="500" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
-                                    </div>
+                     
+               </div>
                                     <div class="space-y-2">
                                         <label for="quantity" class="text-sm font-medium text-slate-700">Quantity</label>
-                                         <input id="quantity" type="number" min="1" value="1" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
+    
+                                     <input id="quantity" type="number" min="1" value="1" class="w-full p-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500">
                                     </div>
-                                </div>
+                
+                </div>
                                 <button id="optimizeButton" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center transition-colors disabled:bg-slate-400 disabled:cursor-not-allowed">
                                 </button>
-                               </div>
+     
+                          </div>
                         </div>
                         <div id="resultsContainer" class="space-y-6 h-full">
-                        </div>
+                       
+ </div>
                      </div>
                 </div>
                 
                 <div id="dashboard-view" class="view-container hidden">
                      <div class="flex-1 overflow-auto space-y-6">
-                        <div class="fade-in">
+   
+                     <div class="fade-in">
                             <h1 class="text-3xl font-bold text-slate-800">Dashboard</h1>
-                            <p class="text-slate-500 mt-1">Welcome back! Here's your workspace overview.</p>
+                            <p class="text-slate-500 mt-1">Welcome back!
+Here's your workspace overview.</p>
                         </div>
     
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="fade-in-up">
-                                <div class="bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-lg">
+           
+                     <div class="bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-lg">
                                     <div class="p-5">
-                                        <div class="flex items-center justify-between mb-2">
+                                    
+    <div class="flex items-center justify-between mb-2">
                                             <h3 class="font-semibold text-slate-500 text-sm">Total Cost Savings</h3>
-                                            <div class="p-2 rounded-lg bg-green-100">
+                                           
+ <div class="p-2 rounded-lg bg-green-100">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                                            </div>
+                 
+                           </div>
                                         </div>
-                                        <div class="text-3xl font-bold text-slate-800 mb-2">$1,250.75</div>
+                                 
+       <div class="text-3xl font-bold text-slate-800 mb-2">$1,250.75</div>
                                         <div class="flex items-center text-xs text-slate-500">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                            <svg 
+xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                                             <span>+12.5% this month</span>
-                                        </div>
+                           
+             </div>
                                     </div>
                                 </div>
-                            </div>
+                   
+         </div>
                             <div class="fade-in-up" style="animation-delay: 0.1s;">
                                 <div class="bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-lg">
-                                    <div class="p-5">
+                      
+              <div class="p-5">
                                         <div class="flex items-center justify-between mb-2">
-                                            <h3 class="font-semibold text-slate-500 text-sm">CO₂ Reduced</h3>
+                                         
+   <h3 class="font-semibold text-slate-500 text-sm">CO₂ Reduced</h3>
                                             <div class="p-2 rounded-lg bg-emerald-100">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-green-600"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                                              
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-green-600"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
                                             </div>
-                                         </div>
+        
+                                 </div>
                                         <div class="text-3xl font-bold text-slate-800 mb-2">85.5 kg</div>
-                                        <div class="flex items-center text-xs text-slate-500">
+                      
+                  <div class="flex items-center text-xs text-slate-500">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                                             <span>Equivalent to 15 trees</span>
+      
+                                       <span>Equivalent to 15 trees</span>
                                         </div>
-                                    </div>
+                  
+                  </div>
                                 </div>
                             </div>
-                            <div class="fade-in-up" style="animation-delay: 0.2s;">
+                      
+      <div class="fade-in-up" style="animation-delay: 0.2s;">
                                 <div class="bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-lg">
                                     <div class="p-5">
-                                        <div class="flex items-center justify-between mb-2">
+                
+                        <div class="flex items-center justify-between mb-2">
                                             <h3 class="font-semibold text-slate-500 text-sm">Plastic Eliminated</h3>
-                                            <div class="p-2 rounded-lg bg-sky-100">
+                        
+                    <div class="p-2 rounded-lg bg-sky-100">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                             </div>
+       
+                                      </div>
                                         </div>
-                                       <div class="text-3xl font-bold text-slate-800 mb-2">22.3 kg</div>
+                      
+                 <div class="text-3xl font-bold text-slate-800 mb-2">22.3 kg</div>
                                         <div class="flex items-center text-xs text-slate-500">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                  
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                                             <span>85% less packaging waste</span>
-                                         </div>
+               
+                          </div>
                                     </div>
                                 </div>
-                             </div>
+      
+                       </div>
                            <div class="fade-in-up" style="animation-delay: 0.3s;">
                                 <div class="bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-lg">
-                                     <div class="p-5">
+         
+                            <div class="p-5">
                                         <div class="flex items-center justify-between mb-2">
-                                            <h3 class="font-semibold text-slate-500 text-sm">Optimized Shipments</h3>
+                           
+                 <h3 class="font-semibold text-slate-500 text-sm">Optimized Shipments</h3>
                                             <div class="p-2 rounded-lg bg-slate-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                                            </div>
+                                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        
+                    </div>
                                         </div>
-                                         <div class="text-3xl font-bold text-slate-800 mb-2">42</div>
+                                        
+ <div class="text-3xl font-bold text-slate-800 mb-2">42</div>
                                          <div class="flex items-center text-xs text-slate-500">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 
+24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                                             <span>8 this week</span>
-                                        </div>
+                                
+        </div>
                                    </div>
                                </div>
-                            </div>
+                          
+  </div>
                          </div>
     
-                        <div class="flex flex-col lg:flex-row justify-end gap-6">
-                            <div class="w-full lg:w-3/5"></div>
-
-                            <div class="w-full lg:w-2/5">
-                                <div class="bg-white/90 backdrop-blur-sm border-2 border-green-100 shadow-xl rounded-lg">
-                                    <div class="bg-gradient-to-r from-green-50 to-blue-50 border-b border-green-100 p-5 rounded-t-lg">
-                                        <h3 class="flex items-center gap-3 font-bold text-slate-900 text-2xl">
-                                            <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                                            </div>
-                                            ESG Goals
-                                        </h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                            <div class="lg:col-span-3">
+                                <div class="bg-white shadow-sm rounded-lg h-full p-6 sm:p-8 flex flex-col">
+                                    <div class="flex items-center gap-3 mb-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path> 
+                                        </svg>
+                                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Performance Analytics</h1> 
                                     </div>
-                                    <div class="p-6 space-y-6">
-                                        <div class="space-y-3">
-                                            <div class="flex items-center justify-between">
-                                                <div class="flex items-center gap-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
-                                                    <span class="font-medium text-gray-900">CO₂ Reduction</span>
-                                                </div>
-                                                <div class="text-sm font-semibold">85.5kg / 100kg</div>
-                                            </div>
-                                            <div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-green-500 h-3 rounded-full" style="width: 85.5%"></div></div>
-                                            <div class="text-xs text-gray-500"><span>86% Achieved</span></div>
-                                        </div>
-                                        <div class="space-y-3">
-                                            <div class="flex items-center justify-between">
-                                                <div class="flex items-center gap-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20z"></path><path d="M2 12h20"></path></svg>
-                                                    <span class="font-medium text-gray-900">Plastic Savings</span>
-                                                </div>
-                                                <div class="text-sm font-semibold">22.3kg / 50kg</div>
-                                            </div>
-                                            <div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-blue-500 h-3 rounded-full" style="width: 44.6%"></div></div>
-                                            <div class="text-xs text-gray-500"><span>45% Achieved</span></div>
-                                        </div>
-                                        <div class="space-y-3">
-                                            <div class="flex items-center justify-between">
-                                                <div class="flex items-center gap-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                                                    <span class="font-medium text-gray-900">Cost Savings Goal</span>
-                                                </div>
-                                                <div class="text-sm font-semibold">$1250.8 / $5000</div>
-                                            </div>
-                                            <div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-purple-500 h-3 rounded-full" style="width: 25.0%"></div></div>
-                                            <div class="text-xs text-gray-500"><span>25% Achieved</span></div>
-                                        </div>
-                                        <div class="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border-2 border-green-100">
-                                            <div class="text-center">
-                                                <h4 class="font-semibold text-gray-900 mb-2">ESG Rating</h4>
-                                                <div class="text-3xl font-bold text-green-600 mb-1">A+</div>
-                                                <p class="text-sm text-gray-600">Excellent sustainability performance</p>
-                                            </div>
-                                        </div>
+                                    <div class="flex flex-wrap sm:flex-nowrap justify-start gap-2 mb-6">
+                                        <button id="btn-financial" class="metric-btn h-12 px-4 rounded-full transition-all duration-300 flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                            Financial Savings
+                                        </button>
+                                        <button id="btn-co2" class="metric-btn h-12 px-4 rounded-full transition-all duration-300 flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                                            CO₂ Reduction
+                                        </button>
+                                        <button id="btn-volume" class="metric-btn h-12 px-4 rounded-full transition-all duration-300 flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                            Volume Saved
+                                        </button>
+                                    </div>
+                                    <div class="flex-grow relative" style="min-height: 300px;">
+                                        <canvas id="performanceChart"></canvas>
+                                        <div id="chart-tooltip"></div>
                                     </div>
                                 </div>
                             </div>
+          
+                  <div class="lg:col-span-2">
+                                <div class="bg-white/90 backdrop-blur-sm border-2 border-green-100 shadow-xl rounded-lg h-full">
+                                    <div class="bg-gradient-to-r from-green-50 to-blue-50 border-b border-green-100 
+p-5 rounded-t-lg">
+                                        <h3 class="flex items-center gap-3 font-bold text-slate-900 text-2xl">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center 
+justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                              
+              </div>
+                                            ESG Goals
+                                        </h3>
+ 
+                                   </div>
+                                    <div class="p-6 space-y-6">
+                           
+             <div class="space-y-3">
+                                            <div class="flex items-center justify-between">
+                                       
+         <div class="flex items-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path 
+d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                                                    <span class="font-medium text-gray-900">CO₂ Reduction</span>
+                                     
+           </div>
+                                                <div class="text-sm font-semibold">85.5kg / 100kg</div>
+                                     
+       </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-green-500 h-3 rounded-full" style="width: 85.5%"></div></div>
+                                        
+    <div class="text-xs text-gray-500"><span>86% Achieved</span></div>
+                                        </div>
+                                        <div class="space-y-3">
+            
+                                <div class="flex items-center justify-between">
+                                                <div class="flex items-center gap-2">
+              
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20z"></path><path d="M2 12h20"></path></svg>
+                              
+                      <span class="font-medium text-gray-900">Plastic Savings</span>
+                                                </div>
+                           
+                     <div class="text-sm font-semibold">22.3kg / 50kg</div>
+                                            </div>
+                               
+             <div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-blue-500 h-3 rounded-full" style="width: 44.6%"></div></div>
+                                            <div class="text-xs text-gray-500"><span>45% Achieved</span></div>
+                               
+         </div>
+                                        <div class="space-y-3">
+                                            <div class="flex items-center justify-between">
+   
+                                             <div class="flex items-center gap-2">
+                                                    
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                                    <span class="font-medium text-gray-900">Cost Savings Goal</span>
+             
+                                   </div>
+                                                <div class="text-sm font-semibold">$1250.8 / $5000</div>
+             
+                               </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-purple-500 h-3 rounded-full" style="width: 25.0%"></div></div>
+                
+                            <div class="text-xs text-gray-500"><span>25% Achieved</span></div>
+                                        </div>
+                             
+           <div class="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border-2 border-green-100">
+                                            <div class="text-center">
+                                    
+            <h4 class="font-semibold text-gray-900 mb-2">ESG Rating</h4>
+                                                <div class="text-3xl font-bold text-green-600 mb-1">A+</div>
+                                
+                <p class="text-sm text-gray-600">Excellent sustainability performance</p>
+                                            </div>
+                                    
+    </div>
+                                    </div>
+                                </div>
+                            
+</div>
                         </div>
 
                         <div class="mt-6">
                             <div class="bg-white shadow-sm rounded-lg">
-                                <div class="p-4 border-b">
+                    
+            <div class="p-4 border-b">
                                     <h3 class="text-lg font-bold text-slate-900">Recent Optimizations</h3>
                                 </div>
-                                <div class="p-4">
+              
+                  <div class="p-4">
                                     <table class="w-full">
                                         <thead class="text-left text-sm text-slate-500">
-                                            <tr>
+ 
+                                           <tr>
                                                 <th class="p-2">Product</th>
-                                                <th class="p-2">Date</th>
+        
+                                        <th class="p-2">Date</th>
                                                 <th class="p-2">Cost Saved</th>
-                                                <th class="p-2">CO₂ Saved</th>
+         
+                                       <th class="p-2">CO₂ Saved</th>
                                                 <th class="p-2">Status</th>
-                                            </tr>
+          
+                                  </tr>
                                         </thead>
-                                        <tbody>
+                          
+              <tbody>
                                             <tr class="border-b">
-                                                <td class="p-2 font-medium">Smartwatch Pro</td>
+                                         
+       <td class="p-2 font-medium">Smartwatch Pro</td>
                                                 <td class="p-2 text-slate-600">Jul 27, 2025</td>
-                                                <td class="p-2 text-green-600 font-semibold">$15.50</td>
+                                      
+          <td class="p-2 text-green-600 font-semibold">$15.50</td>
                                                 <td class="p-2 text-slate-600">1.20 kg</td>
-                                                <td class="p-2"><span class="bg-emerald-100 text-emerald-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Analyzed</span></td>
+                                    
+            <td class="p-2"><span class="bg-emerald-100 text-emerald-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Analyzed</span></td>
                                             </tr>
-                                            <tr class="border-b">
+                                   
+         <tr class="border-b">
                                                 <td class="p-2 font-medium">Wireless Earbuds</td>
-                                                <td class="p-2 text-slate-600">Jul 26, 2025</td>
+                                       
+         <td class="p-2 text-slate-600">Jul 26, 2025</td>
                                                 <td class="p-2 text-green-600 font-semibold">$8.75</td>
-                                                <td class="p-2 text-slate-600">0.85 kg</td>
+                                    
+            <td class="p-2 text-slate-600">0.85 kg</td>
                                                 <td class="p-2"><span class="bg-emerald-100 text-emerald-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Analyzed</span></td>
-                                            </tr>
+                            
+                </tr>
                                             <tr class="border-b">
-                                                <td class="p-2 font-medium">Yoga Mat</td>
+                                       
+         <td class="p-2 font-medium">Yoga Mat</td>
                                                 <td class="p-2 text-slate-600">Jul 26, 2025</td>
-                                                <td class="p-2 text-green-600 font-semibold">$22.10</td>
+                                    
+            <td class="p-2 text-green-600 font-semibold">$22.10</td>
                                                 <td class="p-2 text-slate-600">2.50 kg</td>
-                                                <td class="p-2"><span class="bg-emerald-100 text-emerald-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Analyzed</span></td>
+                                  
+              <td class="p-2"><span class="bg-emerald-100 text-emerald-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Analyzed</span></td>
                                             </tr>
-                                            <tr class="border-b">
+                                 
+           <tr class="border-b">
                                                 <td class="p-2 font-medium">Glass Water Bottle</td>
-                                                <td class="p-2 text-slate-600">Jul 25, 2025</td>
+                                    
+            <td class="p-2 text-slate-600">Jul 25, 2025</td>
                                                 <td class="p-2 text-green-600 font-semibold">$12.30</td>
-                                                <td class="p-2 text-slate-600">1.10 kg</td>
+                                 
+               <td class="p-2 text-slate-600">1.10 kg</td>
                                                 <td class="p-2"><span class="bg-emerald-100 text-emerald-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Analyzed</span></td>
-                                            </tr>
+                         
+                   </tr>
                                             <tr>
-                                                <td class="p-2 font-medium">Bluetooth Speaker</td>
+                                     
+           <td class="p-2 font-medium">Bluetooth Speaker</td>
                                                 <td class="p-2 text-slate-600">Jul 24, 2025</td>
-                                                <td class="p-2 text-green-600 font-semibold">$18.90</td>
+                                  
+              <td class="p-2 text-green-600 font-semibold">$18.90</td>
                                                 <td class="p-2 text-slate-600">1.75 kg</td>
-                                                <td class="p-2"><span class="bg-emerald-100 text-emerald-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Analyzed</span></td>
+                                
+                <td class="p-2"><span class="bg-emerald-100 text-emerald-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Analyzed</span></td>
                                             </tr>
-                                        </tbody>
+                               
+         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                       
+     </div>
                         </div>
                     </div>
                 </div>
               
                 <div id="analysis-view" class="view-container hidden">
-                     <div class="main-container">
+  
+                   <div class="main-container">
                         <div class="grid-container metrics-grid">
                             <div class="card">
-                                 <div class="card-content metric-card-content">
+                         
+        <div class="card-content metric-card-content">
                                      <div class="metric-icon-wrapper bg-red-50">
-                                        <svg class="text-red-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path><path d="m7.5 4.21 9 5.15"></path><path d="M21 16V8"></path><path d="M3.29 7 12 12l8.71-5"></path><path d="M12 22V12"></path><line x1="17" y1="13.5" x2="17" y2="19"></line><line x1="20" y1="16.5" x2="14" y2="16.5"></line></svg>
+                                        <svg class="text-red-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path><path d="m7.5 4.21 9 5.15"></path><path d="M21 16V8"></path><path d="M3.29 7 12 12l8.71-5"></path><path d="M12 22V12"></path><line x1="17" y1="13.5" x2="17" y2="19"></line><line x1="20" y1="16.5" x2="14" y2="16.5"></line></svg>
                                      </div>
-                                     <div class="metric-value">43%</div>
+           
+                          <div class="metric-value">43%</div>
                                     <div class="metric-title">Average Waste</div>
-                                    <div class="metric-subtitle">Across all products</div>
+                                   
+ <div class="metric-subtitle">Across all products</div>
                                  </div>
                             </div>
                             <div class="card">
-                                 <div class="card-content metric-card-content">
+      
+                           <div class="card-content metric-card-content">
                                     <div class="metric-icon-wrapper bg-green-50">
-                                         <svg class="text-green-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                 
+        <svg class="text-green-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                                     </div>
-                                     <div class="metric-value">$2340</div>
+                          
+           <div class="metric-value">$2340</div>
                                       <div class="metric-title">Monthly Savings</div>
                                      <div class="metric-subtitle">Potential reduction</div>
-                                   </div>
+         
+                          </div>
                             </div>
                             <div class="card">
-                               <div class="card-content metric-card-content">
+                 
+              <div class="card-content metric-card-content">
                                        <div class="metric-icon-wrapper bg-emerald-50">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                                           
+ <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
                                     </div>
-                                     <div class="metric-value">127kg</div>
+                   
+                  <div class="metric-value">127kg</div>
                                      <div class="metric-title">CO₂ Reduction</div>
                                      <div class="metric-subtitle">Per month</div>
-                                </div>
+   
+                             </div>
                              </div>
                             <div class="card">
-                                 <div class="card-content metric-card-content">
+             
+                    <div class="card-content metric-card-content">
                                      <div class="metric-icon-wrapper bg-blue-50">
-                                         <svg class="text-blue-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                                       
+  <svg class="text-blue-600" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
                                      </div>
-                                     <div class="metric-value">82</div>
+                                   
+  <div class="metric-value">82</div>
                                      <div class="metric-title">ESG Score</div>
                                     <div class="metric-subtitle">Sustainability rating</div>
-                                 </div>
+                    
+             </div>
                              </div>
                         </div>
                          <div class="grid-container charts-grid">
-                            <div class="card">
+       
+                     <div class="card">
                                  <div class="card-header">
                                     <h3 class="card-title">
-                                        <svg class="text-emerald-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
+       
+                                 <svg class="text-emerald-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
                                         Packaging Waste Analysis
-                                   </h3>
+     
+                              </h3>
                                  </div>
                                  <div class="card-content">
-                                    <div>
+   
+                                 <div>
                                          <h4>
-                                             <svg class="text-blue-600" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline><polyline points="16 17 22 17 22 11"></polyline></svg>
+                          
+                   <svg class="text-blue-600" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline><polyline points="16 17 22 17 22 11"></polyline></svg>
                                              Current vs Optimized Waste
-                                        </h4>
+       
+                                 </h4>
                                           <div class="chart-wrapper bar-chart-wrapper">
-                                             <canvas id="wasteBarChart"></canvas>
+                       
+                      <canvas id="wasteBarChart"></canvas>
                                         </div>
                                     </div>
-                                    <div style="margin-top: 32px;">
+ 
+                                   <div style="margin-top: 32px;">
                                          <h4>Waste Distribution by Category</h4>
-                                         <div class="chart-wrapper pie-chart-wrapper">
+                   
+                      <div class="chart-wrapper pie-chart-wrapper">
                                                <canvas id="wasteDoughnutChart"></canvas>
-                                         </div>
+                            
+             </div>
                                          <div id="doughnut-legend" class="legend"></div>
                                       </div>
-                                 </div>
+      
+                           </div>
                              </div>
                              <div class="card">
-                                 <div class="card-header">
+              
+                   <div class="card-header">
                                     <h3 class="card-title">
-                                          <svg class="text-green-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                          <svg 
+class="text-green-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                                          Savings Projection
-                                    </h3>
+                             
+       </h3>
                                 </div>
                                  <div class="card-content">
-                                     <div class="savings-projection-grid">
+                           
+          <div class="savings-projection-grid">
                                         <div class="savings-box bg-green-50">
-                                               <div id="monthly-savings-box" class="savings-value text-green-600"></div>
+                                               
+<div id="monthly-savings-box" class="savings-value text-green-600"></div>
                                             <div class="metric-subtitle">Monthly Savings</div>
                                          </div>
-                                         <div class="savings-box bg-blue-50">
+          
+                               <div class="savings-box bg-blue-50">
                                              <div id="annual-savings-box" class="savings-value text-blue-600"></div>
-                                             <div class="metric-subtitle">Annual Savings</div>
+                   
+                          <div class="metric-subtitle">Annual Savings</div>
                                         </div>
-                                     </div>
+                                
+     </div>
                                     <div style="margin-top: 24px;">
                                          <h4>
-                                             <svg class="text-blue-600" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
-                                            6-Month Implementation Timeline
+                
+                             <svg class="text-blue-600" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                                            6-Month 
+Implementation Timeline
                                         </h4>
                                           <div class="chart-wrapper line-chart-wrapper">
-                                             <canvas id="savingsLineChart"></canvas>
+               
+                              <canvas id="savingsLineChart"></canvas>
                                         </div>
-                                    </div>
+                             
+       </div>
                                 </div>
                             </div>
                          </div>
-                     </div>
+        
+             </div>
                  </div>
     
                 <div id="history-view" class="view-container hidden">
                     <div class="overflow-auto">
-                        <div class="space-y-6 max-w-7xl mx-auto">
+                        <div class="space-y-6 
+max-w-7xl mx-auto">
                           <div class="flex justify-between items-center">
                             <div>
                               <h1 class="text-3xl font-bold text-slate-800">Optimization History</h1>
-                              <p class="text-slate-500 mt-1">Review and export all past optimizations.</p>
+        
+                      <p class="text-slate-500 mt-1">Review and export all past optimizations.</p>
                             </div>
-                            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-900 text-slate-50 hover:bg-slate-900/90 h-10 px-4 py-2">
+                            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none 
+disabled:opacity-50 bg-slate-900 text-slate-50 hover:bg-slate-900/90 h-10 px-4 py-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                                Export All
+                          
+      Export All
                             </button>
                           </div>
             
-                          <div class="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
+                          <div 
+class="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
                             <div class="flex flex-col space-y-1.5 p-6">
                                <div class="flex items-center gap-4">
-                                 <div class="relative flex-1">
+                             
+    <div class="relative flex-1">
                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-                                   <input id="historySearchInput" placeholder="Search by product name..." class="pl-9 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                                   
+<input id="historySearchInput" placeholder="Search by product name..." class="pl-9 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
                                </div>
                                </div>
-                            </div>
+          
+                  </div>
                             <div class="p-0">
                               <div class="relative w-full overflow-auto">
-                                <table class="w-full caption-bottom text-sm">
+                    
+            <table class="w-full caption-bottom text-sm">
                                   <thead class="[&_tr]:border-b">
                                     <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Product</th>
+          
+                            <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Product</th>
                                       <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Date</th>
-                                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Cost Saved</th>
+                      
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Cost Saved</th>
                                       <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">CO₂ Saved</th>
-                                      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Volume Saved</th>
+                                
+      <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Volume Saved</th>
                                       <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
-                                      <th class="h-12 px-4 align-middle font-medium text-muted-foreground text-right">Actions</th>
+                                      <th class="h-12 px-4 align-middle font-medium 
+text-muted-foreground text-right">Actions</th>
                                     </tr>
                                   </thead>
-                                  <tbody id="historyOptimizationsTableBody"></tbody>
+                             
+     <tbody id="historyOptimizationsTableBody"></tbody>
                                 </table>
                               </div>
                             </div>
-                          </div>
+    
+                      </div>
                         </div>
                     </div>
                 </div>
 
-                <div id="products-view" class="view-container hidden">
+                <div id="products-view" 
+class="view-container hidden">
                    <div class="space-y-6 max-w-7xl mx-auto">
                         <div class="flex justify-between items-center">
                             <div>
-                                <h1 class="text-3xl font-bold text-slate-800">Products</h1>
+                      
+          <h1 class="text-3xl font-bold text-slate-800">Products</h1>
                                 <p class="text-slate-500 mt-1">Manage your saved products for faster optimization.</p>
                             </div>
-                            <button id="addNewBtn" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium bg-slate-900 text-slate-50 hover:bg-slate-900/90 h-10 px-4 py-2">
+                   
+         <button id="addNewBtn" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium bg-slate-900 text-slate-50 hover:bg-slate-900/90 h-10 px-4 py-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="16"></line><line x1="8" x2="16" y1="12" y2="12"></line></svg>
-                                Add New Product
+                   
+             Add New Product
                             </button>
                         </div>
         
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
+                        <div 
+class="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
                             <div class="p-0">
                                 <div class="relative w-full overflow-auto">
-                                    <table class="w-full caption-bottom text-sm">
+                               
+     <table class="w-full caption-bottom text-sm">
                                         <thead class="[&_tr]:border-b">
                                             <tr class="border-b transition-colors hover:bg-muted/50">
-                                                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Product Name</th>
-                                                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">SKU</th>
+    
+                                            <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Product Name</th>
+                                                <th 
+class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">SKU</th>
                                                 <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Dimensions (cm)</th>
-                                                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Weight (g)</th>
+                                        
+        <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Weight (g)</th>
                                                 <th class="h-12 px-4 align-middle font-medium text-muted-foreground text-right">Actions</th>
-                                            </tr>
+                               
+             </tr>
                                         </thead>
                                         <tbody id="productsTableBody">
-                                            </tbody>
+      
+                                      </tbody>
                                     </table>
-                                </div>
+                          
+      </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+      
+      </div>
         </main>
     </div>
     
@@ -668,20 +963,24 @@
    <div id="productDialog" class="hidden fixed inset-0 z-50 flex items-center justify-center dialog-backdrop">
         <div class="bg-white rounded-lg shadow-lg w-full max-w-md mx-4">
             <div class="p-6">
-                <h2 id="dialogTitle" class="text-lg font-semibold text-slate-800">Add New Product</h2>
+           
+     <h2 id="dialogTitle" class="text-lg font-semibold text-slate-800">Add New Product</h2>
             </div>
             <div class="px-6 py-4 space-y-4 border-t border-b">
                 <input type="hidden" id="productId">
                 <input id="productName" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" placeholder="Product Name">
-                <input id="productSku" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" placeholder="SKU">
+             
+   <input id="productSku" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" placeholder="SKU">
                 <div class="grid grid-cols-3 gap-2">
                     <input id="productLength" type="number" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" placeholder="Length (cm)">
-                    <input id="productWidth" type="number" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" placeholder="Width (cm)">
+                    <input id="productWidth" type="number" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 
+text-sm" placeholder="Width (cm)">
                     <input id="productHeight" type="number" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" placeholder="Height (cm)">
                 </div>
                 <input id="productWeight" type="number" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" placeholder="Weight (g)">
             </div>
-            <div class="flex justify-end p-6 gap-2">
+      
+      <div class="flex justify-end p-6 gap-2">
                 <button id="cancelBtn" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 border border-input hover:bg-accent hover:text-accent-foreground">Cancel</button>
                 <button id="saveBtn" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium bg-slate-900 text-slate-50 hover:bg-slate-900/90 h-10 px-4 py-2">Save Product</button>
             </div>
@@ -690,9 +989,10 @@
 
 
  <script>
-        function closeModal() {
+   
+     function closeModal() {
             document.getElementById('modalBg').style.display = 'none';
-        }
+}
 
         document.addEventListener('DOMContentLoaded', () => {
             const formInputs = {
@@ -700,201 +1000,392 @@
                 productName: document.querySelector('#optimizer-view #productName'), // Scoped selector
                 length: document.getElementById('length'),
                 width: document.getElementById('width'),
-                height: document.getElementById('height'),
+  
+              height: document.getElementById('height'),
                 weight: document.getElementById('weight'),
                 quantity: document.getElementById('quantity'),
             };
             const optimizeButton = document.getElementById('optimizeButton');
             const resultsContainer = document.getElementById('resultsContainer');
-            const modalContainer = document.getElementById('sustainabilityModal');
+         
+   const modalContainer = document.getElementById('sustainabilityModal');
             
             const navLinks = {
                 dashboard: document.getElementById('nav-dashboard'),
                 optimizer: document.getElementById('nav-optimizer'),
                 analysis: document.getElementById('nav-analysis'),
-                history: document.getElementById('nav-history'),
+                
+history: document.getElementById('nav-history'),
                 products: document.getElementById('nav-products'),
             };
-
-            const views = {
+const views = {
                 optimizer: document.getElementById('optimizer-view'),
                 dashboard: document.getElementById('dashboard-view'),
                 analysis: document.getElementById('analysis-view'),
                 history: document.getElementById('history-view'),
                 products: document.getElementById('products-view'),
-            };
+            
+};
             
             // --- Mobile Menu Elements ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const closeMenuButton = document.getElementById('close-menu-button');
+const closeMenuButton = document.getElementById('close-menu-button');
             const sidebar = document.getElementById('sidebar');
             const menuOverlay = document.getElementById('menu-overlay');
-
-            // --- State Variables ---
+// --- State Variables ---
             let isOptimizing = false;
-            let optimizationData = null;
+let optimizationData = null;
             let analysisChartsInitialized = false;
             let historyViewInitialized = false;
             let productsViewInitialized = false;
-
-
-            const mockProducts = {
+            let dashboardAnalyticsInitialized = false;
+const mockProducts = {
                 '1': { name: 'Premium Coffee Mug', length: 12, width: 9, height: 10, weight: 450 },
                 '2': { name: 'Wireless Mouse', length: 11, width: 6, height: 4, weight: 150 },
                 '3': { name: 'Hardcover Book', length: 23, width: 15, height: 3, weight: 700 },
-            };
+         
+   };
             
             const initialOptimizeButtonContent = `Optimize Packaging`;
-            const loadingAnimationHTML = `<div class="shadow-2xl border-0 overflow-hidden rounded-2xl bg-white h-full flex flex-col"><div class="bg-gradient-to-l from-emerald-600 via-emerald-700 to-emerald-800 p-8"><div class="text-center text-white"><div class="w-16 h-16 mx-auto mb-4 animate-rotate text-4xl">✨</div><h2 class="text-3xl font-bold mb-2">Smart Optimization in Progress</h2></div></div><div class="p-8 flex-grow"><div class="space-y-6"><div class="flex items-center gap-4 p-4 rounded-xl bg-gray-50 step-animation" style="animation-delay: 0s;"><div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📦</div><div class="flex-1"><p class="font-semibold text-gray-900">Scanning your products...</p></div><div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-scale"></div></div><div class="flex items-center gap-4 p-4 rounded-xl bg-gray-50 step-animation" style="animation-delay: 0.8s;"><div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">🧠</div><div class="flex-1"><p class="font-semibold text-gray-900">Calculating optimal packaging...</p></div><div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-scale"></div></div><div class="flex items-center gap-4 p-4 rounded-xl bg-gray-50 step-animation" style="animation-delay: 1.6s;"><div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">♻️</div><div class="flex-1"><p class="font-semibold text-gray-900">Measuring environmental impact...</p></div><div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-scale"></div></div><div class="flex items-center gap-4 p-4 rounded-xl bg-gray-50 step-animation" style="animation-delay: 2.4s;"><div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">⚡</div><div class="flex-1"><p class="font-semibold text-gray-900">Preparing smart recommendations...</p></div><div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-scale"></div></div></div></div></div>`;
-            const initialModalContent = `<form id="sustainabilityForm" action="https://formspree.io/f/xldlbwjg" method="POST"><button class="close-btn" onclick="closeModal()" type="button">&times;</button><img src="EcoOpti - LOGO (2).png" alt="sustainability icon" class="rounded-full"><h2>Your ESG Report is Almost Ready</h2><p>We’ll generate a quick personalized report including:<br><br>▸ Packaging CO₂ impact<br>▸ Yearly cost inefficiencies<br>▸ Scope 3 footprint<br>▸ Key optimization tips for you</p><input type="email" id="email" name="email" placeholder="you@yourcompany.com" required /><button class="submit-btn" type="submit">Send My Report</button><div class="footer-note">Powered by EcoOpti • Smarter Shipping. Greener Planet.</div></form>`;
+            const loadingAnimationHTML = `<div class="shadow-2xl border-0 overflow-hidden rounded-2xl bg-white h-full flex flex-col"><div class="bg-gradient-to-l from-emerald-600 via-emerald-700 to-emerald-800 p-8"><div class="text-center text-white"><div class="w-16 h-16 mx-auto mb-4 animate-rotate text-4xl">✨</div><h2 class="text-3xl font-bold mb-2">Smart Optimization in Progress</h2></div></div><div class="p-8 flex-grow"><div class="space-y-6"><div class="flex items-center gap-4 p-4 rounded-xl bg-gray-50 step-animation" style="animation-delay: 0s;"><div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📦</div><div class="flex-1"><p class="font-semibold text-gray-900">Scanning your products...</p></div><div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-scale"></div></div><div class="flex items-center gap-4 p-4 rounded-xl bg-gray-50 step-animation" style="animation-delay: 0.8s;"><div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">🧠</div><div class="flex-1"><p class="font-semibold text-gray-900">Calculating optimal packaging...</p></div><div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-scale"></div></div><div class="flex items-center gap-4 
+p-4 rounded-xl bg-gray-50 step-animation" style="animation-delay: 1.6s;"><div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">♻️</div><div class="flex-1"><p class="font-semibold text-gray-900">Measuring environmental impact...</p></div><div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-scale"></div></div><div class="flex items-center gap-4 p-4 rounded-xl bg-gray-50 step-animation" style="animation-delay: 2.4s;"><div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">⚡</div><div class="flex-1"><p class="font-semibold text-gray-900">Preparing smart recommendations...</p></div><div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse-scale"></div></div></div></div></div>`;
+const initialModalContent = `<form id="sustainabilityForm" action="https://formspree.io/f/xldlbwjg" method="POST"><button class="close-btn" onclick="closeModal()" type="button">&times;</button><img src="EcoOpti - LOGO (2).png" alt="sustainability icon" class="rounded-full"><h2>Your ESG Report is Almost Ready</h2><p>We’ll generate a quick personalized report including:<br><br>▸ Packaging CO₂ impact<br>▸ Yearly cost inefficiencies<br>▸ Scope 3 footprint<br>▸ Key optimization tips for you</p><input type="email" id="email" name="email" placeholder="you@yourcompany.com" required /><button class="submit-btn" type="submit">Send My Report</button><div class="footer-note">Powered by EcoOpti • Smarter Shipping.
+Greener Planet.</div></form>`;
             const awaitingOptimizationHTML = `<div class="border-dashed border-2 border-slate-300 text-center py-20 rounded-lg h-full flex flex-col justify-center"><div class="text-5xl text-slate-400 mx-auto mb-4">✨</div><h3 class="text-lg font-semibold text-slate-700">Awaiting Optimization</h3><p class="text-slate-500 text-sm">Your results will appear here.</p></div>`;
-            const analysisData = {
+const analysisData = {
                 totalProducts: 15, averageWaste: 43, totalWasteVolume: 145680, potentialSavings: 2340,
                 co2Reduction: 127, esgScore: 82,
                 topWastefulProducts: [
                   { name: "Gaming Laptop", currentWaste: 67, optimizedWaste: 15, savings: 450 },
-                  { name: "Kitchen Appliance", currentWaste: 58, optimizedWaste: 12, savings: 320 },
+          
+        { name: "Kitchen Appliance", currentWaste: 58, optimizedWaste: 12, savings: 320 },
                   { name: "Electronic Device", currentWaste: 52, optimizedWaste: 18, savings: 280 }
                 ],
                 categoryBreakdown: [
-                  { category: "Electronics", wastePercentage: 48, volume: 65400 },
+                  { category: "Electronics", 
+wastePercentage: 48, volume: 65400 },
                   { category: "Appliances", wastePercentage: 41, volume: 42300 },
                   { category: "Accessories", wastePercentage: 38, volume: 37980 }
                 ]
             };
-            const CHART_COLORS = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6'];
+const CHART_COLORS = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6'];
+
+            const initializeDashboardAnalytics = () => {
+                const canvas = document.getElementById('performanceChart');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+let chart;
+                let currentMetricId = 'financial';
+function createGradient(color) {
+                    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, `${color}B3`);
+                    gradient.addColorStop(1, `${color}00`);
+                    return gradient;
+                }
+
+                const dataSets = {
+                    financial: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                        data: [2800, 3200, 3000, 3600, 3400, 3900, 3500],
+                        yAxisMax: 4000,
+                        color: '#10B981',
+                        valueColor: '#10B981',
+gradient: createGradient('#10B981'),
+                        labelText: 'Monthly savings: ',
+                        valueFormatter: (value) => `$${value.toLocaleString()}`
+                    },
+                    co2: {
+                        labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                        data: [35, 70, 90, 80, 105, 140],
+yAxisMax: 140,
+                        color: '#10B981',
+                        valueColor: '#10B981',
+                        gradient: createGradient('#10B981'),
+                        labelText: 'CO₂ saved: ',
+                        valueFormatter: (value) => `${value} kg`
+                    },
+                    volume: {
+labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                        data: [30, 60, 50, 80, 90, 120, 110],
+                        yAxisMax: 120,
+                        color: '#3B82F6',
+                        valueColor: '#1d4ed8',
+                        gradient: createGradient('#3B82F6'),
+                        labelText: 'Volume efficiency: ',
+valueFormatter: (value, yAxisMax) => `${Math.round((value / yAxisMax) * 100)}%`
+                    }
+                };
+const externalTooltipHandler = (context) => {
+                    const { chart, tooltip } = context;
+const tooltipEl = document.getElementById('chart-tooltip');
+                    if (!tooltipEl) return;
+
+                    if (tooltip.opacity === 0) {
+                        tooltipEl.style.opacity = 0;
+return;
+                    }
+
+                    const metric = dataSets[currentMetricId];
+if (tooltip.body) {
+                        const title = `${tooltip.title[0]} 2024`;
+const value = tooltip.dataPoints[0].parsed.y;
+                        const formattedValue = metric.valueFormatter(value, metric.yAxisMax);
+                        
+                        const tooltipContent = `
+                            <div class="font-bold text-gray-800 text-base mb-1">${title}</div>
+                            <div style="color: ${metric.valueColor}; font-weight: 500;">
+                                ${metric.labelText}${formattedValue}
+                            </div>
+                        `;
+tooltipEl.innerHTML = tooltipContent;
+                    }
+
+                    const { offsetLeft: positionX, offsetTop: positionY } = chart.canvas;
+tooltipEl.style.opacity = 1;
+                    tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+                    tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+                };
+function createChart(metricId) {
+                    currentMetricId = metricId;
+                    const dataSet = dataSets[metricId];
+if (chart) {
+                        chart.destroy();
+}
+                    chart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: dataSet.labels,
+                            datasets: [{
+                                data: dataSet.data,
+fill: true,
+                                borderColor: dataSet.color,
+                                backgroundColor: dataSet.gradient,
+                                tension: 0.4,
+                                borderWidth: 3,
+pointRadius: 0,
+                                pointHoverRadius: 7,
+                                pointBackgroundColor: dataSet.color,
+                                pointBorderColor: '#fff',
+pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: dataSet.color,
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+scales: {
+                                x: {
+                                    grid: { 
+                                        display: true,
+color: 'rgba(229, 231, 235, 0.2)', 
+                                        borderDash: [3, 5], 
+drawBorder: false,
+                                    },
+                                    ticks: { color: '#6B7280', font: { weight: 500 } },
+border: { display: false }
+                                },
+                                y: {
+                                    beginAtZero: true,
+max: dataSet.yAxisMax,
+                                    grid: {
+                                        display: true,
+                                        color: 'rgba(229, 231, 235, 0.2)',
+borderDash: [3, 5],
+                                        drawBorder: false,
+},
+                                    ticks: { color: '#6B7280', font: { weight: 500 }, padding: 10 },
+                                    border: { display: false }
+                                }
+},
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: {
+                                    enabled: false,
+external: externalTooltipHandler
+                                }
+                            },
+                            interaction: {
+                                intersect: false,
+mode: 'index',
+                            },
+                        }
+                    });
+}
+
+                const buttons = {
+                    financial: document.getElementById('btn-financial'),
+                    co2: document.getElementById('btn-co2'),
+                    volume: document.getElementById('btn-volume')
+                };
+function setActiveButton(activeId) {
+                    Object.keys(buttons).forEach(id => {
+                        const button = buttons[id];
+                        if (button) {
+                            if (id === activeId) {
+                                button.classList.add('bg-gradient-to-r', 'from-green-500', 'to-emerald-600', 'text-white', 'shadow-lg');
+                                button.classList.remove('border-gray-200', 'hover:border-green-300', 'hover:bg-green-50', 'text-gray-700', 'border');
+                            } else {
+button.classList.remove('bg-gradient-to-r', 'from-green-500', 'to-emerald-600', 'text-white', 'shadow-lg');
+                                button.classList.add('border', 'border-gray-200', 'hover:border-green-300', 'hover:bg-green-50', 'text-gray-700');
+                            }
+                        }
+                    });
+}
+
+                if (buttons.financial) buttons.financial.addEventListener('click', () => { createChart('financial'); setActiveButton('financial'); });
+                if (buttons.co2) buttons.co2.addEventListener('click', () => { createChart('co2'); setActiveButton('co2'); });
+if (buttons.volume) buttons.volume.addEventListener('click', () => { createChart('volume'); setActiveButton('volume'); });
+                
+                createChart('financial');
+                setActiveButton('financial');
+            };
 
             const renderAnalysisCharts = () => {
                 try {
                     const barChartCtx = document.getElementById('wasteBarChart').getContext('2d');
-                    new Chart(barChartCtx, {
+new Chart(barChartCtx, {
                         type: 'bar', data: {
                         labels: analysisData.categoryBreakdown.map(item => item.category),
                         datasets: [
-                            { label: 'Current Waste', data: analysisData.categoryBreakdown.map(item => item.wastePercentage), backgroundColor: '#ef4444', borderRadius: 4, borderSkipped: false },
+                   
+         { label: 'Current Waste', data: analysisData.categoryBreakdown.map(item => item.wastePercentage), backgroundColor: '#ef4444', borderRadius: 4, borderSkipped: false },
                             { label: 'Optimized Waste', data: analysisData.categoryBreakdown.map(item => Math.max(8, item.wastePercentage - 35)), backgroundColor: '#22c55e', borderRadius: 4, borderSkipped: false }
                         ]},
-                        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => `${c.dataset.label || ''}: ${c.parsed.y}%` }}}, scales: { x: { grid: { display: false } }, y: { beginAtZero: true, grid: { color: '#e5e7eb', borderDash: [3, 3] }}}}
+        
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => `${c.dataset.label || ''}: ${c.parsed.y}%` }}}, scales: { x: { grid: { display: false } }, y: { beginAtZero: true, grid: { color: '#e5e7eb', borderDash: [3, 3] }}}}
                     });
-                } catch (e) { console.error("Failed to create Bar Chart:", e); }
+} catch (e) { console.error("Failed to create Bar Chart:", e);
+}
                 try {
                     const doughnutChartCtx = document.getElementById('wasteDoughnutChart').getContext('2d');
-                    const doughnutChart = new Chart(doughnutChartCtx, {
+const doughnutChart = new Chart(doughnutChartCtx, {
                         type: 'doughnut', data: {
                         labels: analysisData.categoryBreakdown.map(item => item.category),
-                        datasets: [{ data: analysisData.categoryBreakdown.map(item => item.wastePercentage), backgroundColor: CHART_COLORS, borderColor: 'rgba(255, 255, 255, 0.9)', borderWidth: 2, hoverOffset: 4 }]
+                        datasets: [{ data: analysisData.categoryBreakdown.map(item => item.wastePercentage), backgroundColor: CHART_COLORS, borderColor: 'rgba(255, 255, 255, 0.9)', borderWidth: 2, hoverOffset: 4 
+}]
                         },
                         options: { responsive: true, maintainAspectRatio: false, cutout: '50%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => `${c.label}: ${c.parsed}%` }}}}
                     });
-                    const legendContainer = document.getElementById('doughnut-legend');
+const legendContainer = document.getElementById('doughnut-legend');
                     legendContainer.innerHTML = '';
                     doughnutChart.data.labels.forEach((label, index) => {
                         const color = doughnutChart.data.datasets[0].backgroundColor[index];
                         legendContainer.innerHTML += `<div class="legend-item"><div class="legend-color" style="background-color: ${color}"></div><span>${label}</span></div>`;
                     });
-                } catch (e) { console.error("Failed to create Doughnut Chart:", e); }
+} catch (e) { console.error("Failed to create Doughnut Chart:", e);
+}
                 try {
                     const savings = analysisData.potentialSavings;
-                    const monthlyProjection = [
+const monthlyProjection = [
                         { month: 'Month 1', savings: savings * 0.3, cumulative: savings * 0.3 }, { month: 'Month 2', savings: savings * 0.6, cumulative: savings * 0.9 },
                         { month: 'Month 3', savings: savings * 0.8, cumulative: savings * 1.7 }, { month: 'Month 4', savings: savings * 0.9, cumulative: savings * 2.6 },
                         { month: 'Month 5', savings: savings * 0.95, cumulative: savings * 3.55 }, { month: 'Month 6', savings: savings, cumulative: savings * 4.55 }
                     ];
-                    const lineChartCtx = document.getElementById('savingsLineChart').getContext('2d');
+const lineChartCtx = document.getElementById('savingsLineChart').getContext('2d');
                     new Chart(lineChartCtx, {
                         type: 'line', data: {
                         labels: monthlyProjection.map(p => p.month),
                         datasets: [
-                            { label: 'Monthly Savings', data: monthlyProjection.map(p => p.savings), borderColor: '#22c55e', backgroundColor: '#22c55e', fill: false, tension: 0.4, borderWidth: 3, pointRadius: 4, pointHoverRadius: 6 },
+               
+             { label: 'Monthly Savings', data: monthlyProjection.map(p => p.savings), borderColor: '#22c55e', backgroundColor: '#22c55e', fill: false, tension: 0.4, borderWidth: 3, pointRadius: 4, pointHoverRadius: 6 },
                             { label: 'Cumulative Savings', data: monthlyProjection.map(p => p.cumulative), borderColor: '#3b82f6', backgroundColor: '#3b82f6', fill: false, tension: 0.4, borderWidth: 2, borderDash: [5, 5], pointRadius: 3, pointHoverRadius: 5 }
-                        ]},
+            
+            ]},
                         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false, callbacks: { label: (c) => `${c.dataset.label || ''}: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(c.parsed.y)}` }}}, scales: { x: { grid: { display: false } }, y: { beginAtZero: true, grid: { color: '#e5e7eb', borderDash: [3, 3] }}}}
-                    });
+       
+             });
                     document.getElementById('monthly-savings-box').innerText = `$${analysisData.potentialSavings.toLocaleString()}`;
-                    document.getElementById('annual-savings-box').innerText = `$${(analysisData.potentialSavings * 12).toLocaleString()}`;
-                } catch (e) { console.error("Failed to create Line Chart:", e); }
+document.getElementById('annual-savings-box').innerText = `$${(analysisData.potentialSavings * 12).toLocaleString()}`;
+                } catch (e) { console.error("Failed to create Line Chart:", e);
+}
             };
-
-            const showView = (viewId) => {
+const showView = (viewId) => {
                 Object.values(views).forEach(view => view.classList.add('hidden'));
-                if (views[viewId]) {
+if (views[viewId]) {
                     views[viewId].classList.remove('hidden');
+}
+                if (viewId === 'dashboard' && !dashboardAnalyticsInitialized) {
+                    initializeDashboardAnalytics();
+                    dashboardAnalyticsInitialized = true;
                 }
                 if (viewId === 'analysis' && !analysisChartsInitialized) {
                     renderAnalysisCharts();
-                    analysisChartsInitialized = true;
+analysisChartsInitialized = true;
                 }
             };
-
-            const setActiveNav = (navId) => {
+const setActiveNav = (navId) => {
                 const allNavLinks = document.querySelectorAll('#main-nav .nav-link');
-                allNavLinks.forEach(link => {
+allNavLinks.forEach(link => {
                     link.classList.remove('bg-green-50', 'text-green-700', 'font-semibold');
                     link.classList.add('text-slate-600');
                 });
-                if (navLinks[navId]) {
+if (navLinks[navId]) {
                     navLinks[navId].classList.add('bg-green-50', 'text-green-700', 'font-semibold');
-                    navLinks[navId].classList.remove('text-slate-600');
+navLinks[navId].classList.remove('text-slate-600');
                 }
             };
-
-            const checkFormValidity = () => {
+const checkFormValidity = () => {
                 const isValid = formInputs.productName.value && formInputs.length.value && formInputs.width.value && formInputs.height.value && formInputs.weight.value;
-                optimizeButton.disabled = !isValid || isOptimizing;
+optimizeButton.disabled = !isValid || isOptimizing;
             };
 
             const handleProductSelect = (event) => {
                 const productId = event.target.value;
-                if (productId && mockProducts[productId]) {
+if (productId && mockProducts[productId]) {
                     const product = mockProducts[productId];
-                    formInputs.productName.value = product.name;
+formInputs.productName.value = product.name;
                     formInputs.length.value = product.length;
                     formInputs.width.value = product.width;
                     formInputs.height.value = product.height;
                     formInputs.weight.value = product.weight;
                     formInputs.quantity.value = 1;
-                }
+}
                 checkFormValidity();
             };
-
-            const handleInputChange = () => {
+const handleInputChange = () => {
                 formInputs.productSelect.value = "";
-                checkFormValidity();
+checkFormValidity();
             };
             
             const renderResults = (data) => {
                 const { current_box, optimized_box, savings } = data;
-                const resultsHTML = `<div class="bg-white shadow-sm rounded-lg border border-slate-200 fade-in-scale"><div class="p-4 border-b border-slate-200 flex justify-between items-center"><h3 class="font-semibold text-slate-800 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M12 3c.3 0 .5.1.8.3l4.9 4.9c.2.2.3.5.3.8v6c0 .3-.1.5-.3.8l-4.9 4.9c-.2.2-.5.3-.8.3s-.5-.1-.8-.3L6.3 15.7c-.2-.2-.3-.5-.3-.8v-6c0 .3.1.5.3-.8l4.9-4.9c.3-.2.5-.3.8-.3z"/></svg>Optimization Result</h3></div><div class="p-6 space-y-4"><div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center p-4 bg-slate-50 rounded-lg"><div class="text-center"><h4 class="font-semibold text-slate-600">Current Box</h4><p class="text-xl md:text-2xl font-bold text-red-500">${current_box.dimensions.length}×${current_box.dimensions.width}×${current_box.dimensions.height} cm</p><p class="text-sm text-slate-500">Cost: $${current_box.cost.toFixed(2)}</p></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-slate-400 justify-self-center"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><div class="text-center"><h4 class="font-semibold text-slate-600">Optimal Box</h4><p class="text-xl md:text-2xl font-bold text-green-600">${optimized_box.dimensions.length}×${optimized_box.dimensions.width}×${optimized_box.dimensions.height} cm</p><p class="text-sm text-slate-500">Cost: $${optimized_box.cost.toFixed(2)}</p></div></div></div></div>`;
-                const savingsHTML = `<div class="bg-white shadow-sm rounded-lg border border-slate-200 fade-in-scale"><div class="p-4 border-b border-slate-200"><h3 class="font-semibold text-slate-800 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>Savings Calculator</h3></div><div class="p-6 space-y-6"><div class="grid grid-cols-1 md:grid-cols-2 gap-6">${createSavingsCard(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`, 'Cost Savings', `$${savings.cost.toFixed(2)}`, 'per single shipment', (savings.cost / 2) * 100, 'from-green-400 to-emerald-500', 'from-green-50 to-emerald-50')}${createSavingsCard(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`, 'Volume Savings', `${savings.volume.toFixed(0)} cm³`, 'less volume', (savings.volume / 10000) * 100, 'from-blue-400 to-cyan-500', 'from-blue-50 to-cyan-50')}${createSavingsCard(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`, 'CO₂ Reduction', `${savings.co2.toFixed(4)} kg`, 'fewer emissions', (savings.co2 / 0.5) * 100, 'from-emerald-400 to-teal-500', 'from-emerald-50 to-teal-50')}${createSavingsCard(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`, 'Plastic Savings', `${savings.plastic.toFixed(4)} kg`, 'less waste', (savings.plastic / 0.2) * 100, 'from-purple-400 to-pink-500', 'from-purple-50 to-pink-50')}</div><div class="bg-gradient-to-r from-green-100 to-blue-100 border-2 border-green-200 rounded-2xl p-6"><h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Estimated Annual Impact</h3><p class="text-gray-600 mb-4 text-center">Assuming 100 shipments per month</p><div class="impact-grid"><div class="text-2xl font-bold text-green-600" style="grid-area: val1;">$${(savings.cost * 1200).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div><div class="text-sm text-gray-500" style="grid-area: lab1;">Annual Savings</div><div class="text-2xl font-bold text-teal-600" style="grid-area: val2;">${(savings.co2 * 1200).toFixed(1)} kg</div><div class="text-sm text-gray-500" style="grid-area: lab2;">CO₂ Saved</div><div class="text-2xl font-bold text-purple-600" style="grid-area: val3;">${(savings.plastic * 1200).toFixed(1)} kg</div><div class="text-sm text-gray-500" style="grid-area: lab3;">Plastic Less</div><div class="text-2xl font-bold text-blue-600" style="grid-area: val4;">${Math.round(savings.volume * 1200 / 1000)} L</div><div class="text-sm text-gray-500" style="grid-area: lab4;">Volume Saved</div></div></div><button id="reportButton" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition-colors">✨ Generate Sustainability Report</button></div></div>`;
-                resultsContainer.innerHTML = resultsHTML + savingsHTML;
+const resultsHTML = `<div class="bg-white shadow-sm rounded-lg border border-slate-200 fade-in-scale"><div class="p-4 border-b border-slate-200 flex justify-between items-center"><h3 class="font-semibold text-slate-800 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M12 3c.3 0 .5.1.8.3l4.9 4.9c.2.2.3.5.3.8v6c0 .3-.1.5-.3.8l-4.9 4.9c-.2.2-.5.3-.8.3s-.5-.1-.8-.3L6.3 15.7c-.2-.2-.3-.5-.3-.8v-6c0 .3.1.5.3-.8l4.9-4.9c.3-.2.5-.3.8-.3z"/></svg>Optimization Result</h3></div><div class="p-6 space-y-4"><div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center p-4 bg-slate-50 rounded-lg"><div class="text-center"><h4 class="font-semibold text-slate-600">Current Box</h4><p class="text-xl md:text-2xl font-bold text-red-500">${current_box.dimensions.length}×${current_box.dimensions.width}×${current_box.dimensions.height} cm</p><p class="text-sm text-slate-500">Cost: $${current_box.cost.toFixed(2)}</p></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-slate-400 justify-self-center"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><div class="text-center"><h4 class="font-semibold text-slate-600">Optimal Box</h4><p class="text-xl md:text-2xl font-bold text-green-600">${optimized_box.dimensions.length}×${optimized_box.dimensions.width}×${optimized_box.dimensions.height} cm</p><p 
+class="text-sm text-slate-500">Cost: $${optimized_box.cost.toFixed(2)}</p></div></div></div></div>`;
+                const savingsHTML = `<div class="bg-white shadow-sm rounded-lg border border-slate-200 fade-in-scale"><div class="p-4 border-b border-slate-200"><h3 class="font-semibold text-slate-800 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>Savings Calculator</h3></div><div class="p-6 space-y-6"><div class="grid grid-cols-1 md:grid-cols-2 gap-6">${createSavingsCard(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`, 'Cost Savings', `$${savings.cost.toFixed(2)}`, 'per single shipment', (savings.cost / 2) * 100, 'from-green-400 to-emerald-500', 'from-green-50 to-emerald-50')}${createSavingsCard(`<svg 
+xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`, 'Volume Savings', `${savings.volume.toFixed(0)} cm³`, 'less volume', (savings.volume / 10000) * 100, 'from-blue-400 to-cyan-500', 'from-blue-50 to-cyan-50')}${createSavingsCard(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 
+5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`, 'CO₂ Reduction', `${savings.co2.toFixed(4)} kg`, 'fewer emissions', (savings.co2 / 0.5) * 100, 'from-emerald-400 to-teal-500', 'from-emerald-50 to-teal-50')}${createSavingsCard(`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`, 'Plastic Savings', `${savings.plastic.toFixed(4)} kg`, 'less waste', (savings.plastic / 0.2) * 100, 'from-purple-400 to-pink-500', 'from-purple-50 to-pink-50')}</div><div class="bg-gradient-to-r from-green-100 to-blue-100 border-2 border-green-200 rounded-2xl p-6"><h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Estimated Annual Impact</h3><p class="text-gray-600 mb-4 text-center">Assuming 100 shipments per month</p><div class="impact-grid"><div class="text-2xl 
+font-bold text-green-600" style="grid-area: val1;">$${(savings.cost * 1200).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div><div class="text-sm text-gray-500" style="grid-area: lab1;">Annual Savings</div><div class="text-2xl font-bold text-teal-600" style="grid-area: val2;">${(savings.co2 * 1200).toFixed(1)} kg</div><div class="text-sm text-gray-500" style="grid-area: lab2;">CO₂ Saved</div><div class="text-2xl font-bold text-purple-600" style="grid-area: val3;">${(savings.plastic * 1200).toFixed(1)} kg</div><div class="text-sm text-gray-500" style="grid-area: lab3;">Plastic Less</div><div class="text-2xl font-bold text-blue-600" style="grid-area: val4;">${Math.round(savings.volume * 1200 / 1000)} L</div><div class="text-sm text-gray-500" style="grid-area: lab4;">Volume Saved</div></div></div><button id="reportButton" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition-colors">✨ Generate Sustainability Report</button></div></div>`;
+resultsContainer.innerHTML = resultsHTML + savingsHTML;
                 document.getElementById('reportButton').addEventListener('click', generateSustainabilityReport);
                 document.querySelectorAll('.fade-in-scale').forEach(el => setTimeout(() => el.classList.add('visible'), 10));
             };
-
-            const createSavingsCard = (icon, title, value, description, progress, iconBg, cardBg) => {
+const createSavingsCard = (icon, title, value, description, progress, iconBg, cardBg) => {
                  const clampedProgress = Math.min(Math.max(progress, 0), 100);
-                 return `<div class="bg-gradient-to-br ${cardBg} border-2 border-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"><div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-gradient-to-br ${iconBg} rounded-xl flex items-center justify-center shadow-lg">${icon}</div><div><h3 class="font-semibold text-gray-900 text-sm">${title}</h3></div></div><div class="text-center mb-4"><div class="text-2xl font-bold text-gray-900 mb-1">${value}</div><div class="text-sm text-gray-600">${description}</div></div><div class="space-y-2"><div class="w-full bg-white/50 rounded-full h-2"><div class="bg-gradient-to-r ${iconBg} h-2 rounded-full" style="width: ${clampedProgress}%"></div></div><div class="text-xs text-gray-500 text-center">${clampedProgress.toFixed(0)}% of max goal</div></div></div>`;
-            };
+return `<div class="bg-gradient-to-br ${cardBg} border-2 border-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"><div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-gradient-to-br ${iconBg} rounded-xl flex items-center justify-center shadow-lg">${icon}</div><div><h3 class="font-semibold text-gray-900 text-sm">${title}</h3></div></div><div class="text-center mb-4"><div class="text-2xl font-bold text-gray-900 mb-1">${value}</div><div class="text-sm text-gray-600">${description}</div></div><div class="space-y-2"><div class="w-full bg-white/50 rounded-full h-2"><div class="bg-gradient-to-r ${iconBg} h-2 rounded-full" style="width: ${clampedProgress}%"></div></div><div class="text-xs text-gray-500 text-center">${clampedProgress.toFixed(0)}% of max goal</div></div></div>`;
+};
 
             const optimizePackaging = () => {
                 if (isOptimizing) return;
-                isOptimizing = true;
+isOptimizing = true;
                 checkFormValidity();
                 resultsContainer.innerHTML = loadingAnimationHTML;
                 setTimeout(() => {
                     const product = { name: formInputs.productName.value, length: parseFloat(formInputs.length.value), width: parseFloat(formInputs.width.value), height: parseFloat(formInputs.height.value) };
                     const productVolume = product.length * product.width * product.height;
                     const currentBoxVolume = productVolume * 2.5;
-                    const optimizedBoxVolume = productVolume * 1.3;
+       
+             const optimizedBoxVolume = productVolume * 1.3;
                     const volumeDifference = currentBoxVolume - optimizedBoxVolume;
                     const savings = { cost: volumeDifference * 0.0003, volume: volumeDifference, co2: volumeDifference * 0.0001, plastic: volumeDifference * 0.0002 };
-                    optimizationData = {
+                   
+ optimizationData = {
                         product_name: product.name,
                         current_box: { dimensions: { length: Math.ceil(product.length * 1.4), width: Math.ceil(product.width * 1.4), height: Math.ceil(product.height * 1.4) }, cost: 1.50 },
-                        optimized_box: { dimensions: { length: Math.ceil(product.length * 1.1), width: Math.ceil(product.width * 1.1), height: Math.ceil(product.height * 1.1) }, cost: 1.50 - savings.cost },
+                        optimized_box: { dimensions: { length: 
+Math.ceil(product.length * 1.1), width: Math.ceil(product.width * 1.1), height: Math.ceil(product.height * 1.1) }, cost: 1.50 - savings.cost },
                         savings: savings
                     };
-                    renderResults(optimizationData);
+renderResults(optimizationData);
                     isOptimizing = false;
                     checkFormValidity();
                 }, 4000);
@@ -902,24 +1393,25 @@
 
             const generateSustainabilityReport = (event) => {
                 const button = event.currentTarget;
-                if (button.disabled) return;
+if (button.disabled) return;
                 button.disabled = true;
                 button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 animate-spin"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Generating...`;
-                setTimeout(() => {
+setTimeout(() => {
                     button.innerHTML = '✨ Generate Sustainability Report';
                     button.disabled = false;
                     const modalBg = document.getElementById('modalBg');
                     modalContainer.innerHTML = initialModalContent; 
-                    modalBg.style.display = 'flex';
+     
+               modalBg.style.display = 'flex';
                 }, 2000);
-            };
+};
             
             const resetUI = () => {
                 Object.values(formInputs).forEach(input => {
                     if (input.id !== 'quantity') input.value = '';
                     else input.value = '1';
                 });
-                setActiveNav('optimizer');
+setActiveNav('optimizer');
                 showView('optimizer');
                 checkFormValidity();
                 resultsContainer.innerHTML = awaitingOptimizationHTML; 
@@ -930,211 +1422,224 @@
                 if (input.id === 'productSelect') {
                     input.addEventListener('change', handleProductSelect);
                 } else {
-                    input.addEventListener('input', handleInputChange);
+          
+          input.addEventListener('input', handleInputChange);
                 }
             });
-            optimizeButton.addEventListener('click', optimizePackaging);
+optimizeButton.addEventListener('click', optimizePackaging);
             
             // --- Navigation Logic ---
             const handleNavClick = (navId, viewId) => {
                 setActiveNav(navId);
-                showView(viewId);
+showView(viewId);
                 sidebar.classList.add('-translate-x-full');
                 menuOverlay.classList.add('hidden');
             };
 
             navLinks.dashboard.addEventListener('click', (e) => { e.preventDefault(); handleNavClick('dashboard', 'dashboard'); });
             navLinks.optimizer.addEventListener('click', (e) => { e.preventDefault(); resetUI(); });
-            navLinks.analysis.addEventListener('click', (e) => { e.preventDefault(); handleNavClick('analysis', 'analysis'); });
+navLinks.analysis.addEventListener('click', (e) => { e.preventDefault(); handleNavClick('analysis', 'analysis'); });
             
             navLinks.history.addEventListener('click', (e) => { 
                 e.preventDefault(); 
                 handleNavClick('history', 'history'); 
                 if (!historyViewInitialized) {
                     initializeHistoryView();
-                    historyViewInitialized = true;
+               
+     historyViewInitialized = true;
                 }
             });
-            navLinks.products.addEventListener('click', (e) => { 
+navLinks.products.addEventListener('click', (e) => { 
                 e.preventDefault(); 
                 handleNavClick('products', 'products'); 
                 if (!productsViewInitialized) {
                     initializeProductsView();
                     productsViewInitialized = true;
-                }
+ 
+               }
             });
-            
-            // --- Mobile Menu Listeners ---
+// --- Mobile Menu Listeners ---
             mobileMenuButton.addEventListener('click', () => {
                 sidebar.classList.remove('-translate-x-full');
                 menuOverlay.classList.remove('hidden');
             });
-
-            closeMenuButton.addEventListener('click', () => {
+closeMenuButton.addEventListener('click', () => {
                 sidebar.classList.add('-translate-x-full');
                 menuOverlay.classList.add('hidden');
             });
-
-            menuOverlay.addEventListener('click', () => {
+menuOverlay.addEventListener('click', () => {
                 sidebar.classList.add('-translate-x-full');
                 menuOverlay.classList.add('hidden');
             });
-
-            // --- History View Initialization ---
+// --- History View Initialization ---
             const initializeHistoryView = () => {
                 let optimizations = [
                     { id: 1, product_name: 'Eco-Friendly Water Bottle', created_date: '2025-07-28T10:00:00Z', savings: { cost: 120.50, co2: 15.2, volume: 500 }, status: 'Completed' },
-                    { id: 2, product_name: 'Recycled Paper Notebook', created_date: '2025-07-25T14:30:00Z', savings: { cost: 85.00, co2: 8.5, volume: 350 }, status: 'Completed' },
+                   
+ { id: 2, product_name: 'Recycled Paper Notebook', created_date: '2025-07-25T14:30:00Z', savings: { cost: 85.00, co2: 8.5, volume: 350 }, status: 'Completed' },
                     { id: 3, product_name: 'Bamboo Toothbrush Set', created_date: '2025-07-22T09:00:00Z', savings: { cost: 210.75, co2: 22.1, volume: 750 }, status: 'Completed' },
-                    { id: 4, product_name: 'Solar Powered Charger', created_date: '2025-07-20T11:45:00Z', savings: { cost: 350.00, co2: 45.8, volume: 1200 }, status: 'Completed' },
+                    { id: 4, product_name: 'Solar Powered Charger', created_date: '2025-07-20T11:45:00Z', savings: { cost: 350.00, co2: 45.8, volume: 1200 }, status: 
+'Completed' },
                 ];
-
-                function renderHistoryTable() {
+function renderHistoryTable() {
                     const tableBody = document.getElementById('historyOptimizationsTableBody');
-                    if (!tableBody) return;
+if (!tableBody) return;
                     
                     tableBody.innerHTML = `
                         ${optimizations.map(opt => `
                         <tr class="data-row border-b transition-colors hover:bg-muted/50" data-id="${opt.id}">
                             <td class="p-4 align-middle font-medium">${opt.product_name}</td>
-                            <td class="p-4 align-middle text-slate-600">${new Date(opt.created_date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</td>
+         
+                   <td class="p-4 align-middle text-slate-600">${new Date(opt.created_date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</td>
                             <td class="p-4 align-middle text-green-600 font-semibold">$${(opt.savings?.cost || 0).toFixed(2)}</td>
                             <td class="p-4 align-middle text-slate-600">${(opt.savings?.co2 || 0).toFixed(2)} kg</td>
-                            <td class="p-4 align-middle text-slate-600">${(opt.savings?.volume || 0).toFixed(0)} cm³</td>
+ 
+                           <td class="p-4 align-middle text-slate-600">${(opt.savings?.volume || 0).toFixed(0)} cm³</td>
                             <td class="p-4 align-middle">
-                                <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-emerald-100 text-emerald-700 capitalize">${opt.status}</div>
+                                <div class="inline-flex items-center rounded-full border 
+px-2.5 py-0.5 text-xs font-semibold bg-emerald-100 text-emerald-700 capitalize">${opt.status}</div>
                             </td>
                             <td class="p-4 align-middle text-right relative">
-                                <button class="actions-button inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 w-10 hover:bg-slate-100">
+                                <button class="actions-button 
+inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 w-10 hover:bg-slate-100">
                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pointer-events-none"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-                                 </button>
+                                
+ </button>
                                 <div class="dropdown-menu hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 border border-slate-200">
                                      <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">View Details</a>
-                                     <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Download Report</a>
+          
+                           <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Download Report</a>
                                      <div class="border-t my-1"></div>
-                                     <a href="#" class="delete-button block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700">Delete</a>
+                          
+           <a href="#" class="delete-button block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700">Delete</a>
                                  </div>
                             </td>
-                        </tr>
+                   
+     </tr>
                         `).join('')}
                         <tr id="history-no-results-row" class="hidden">
                             <td colspan="7" class="text-center py-10">
-                                <p class="font-semibold">No results found</p>
+              
+                  <p class="font-semibold">No results found</p>
                                 <p class="text-slate-500 text-sm">Try adjusting your search.</p>
                             </td>
-                        </tr>
+              
+          </tr>
                     `;
-                }
+}
 
                 const historySearchInput = document.getElementById('historySearchInput');
-                historySearchInput.addEventListener('input', (e) => {
+historySearchInput.addEventListener('input', (e) => {
                     const searchTerm = e.target.value.toLowerCase();
                     const tableBody = document.getElementById('historyOptimizationsTableBody');
                     const dataRows = tableBody.querySelectorAll('.data-row');
                     const noResultsRow = document.getElementById('history-no-results-row');
-                    let visibleRows = 0;
+     
+               let visibleRows = 0;
 
                     dataRows.forEach(row => {
                         const productName = row.querySelector('td').textContent.toLowerCase();
                         if (productName.includes(searchTerm)) {
-                            row.style.display = '';
+       
+                     row.style.display = '';
                             visibleRows++;
                         } else {
-                            row.style.display = 'none';
+                       
+     row.style.display = 'none';
                         }
                     });
 
                     noResultsRow.style.display = (visibleRows === 0) ? '' : 'none';
                 });
-
-                views.history.addEventListener('click', (e) => {
+views.history.addEventListener('click', (e) => {
                     const openDropdown = document.querySelector('.dropdown-menu:not(.hidden)');
                     
                     if (e.target.classList.contains('delete-button')) {
                         e.preventDefault();
-                        const row = e.target.closest('.data-row');
+        
+                const row = e.target.closest('.data-row');
                         if (row && confirm('Are you sure you want to delete this optimization record?')) {
                             row.remove();
-                        }
+                
+        }
                     }
                     
                     const isActionsButton = e.target.classList.contains('actions-button') || e.target.closest('.actions-button');
 
                     if (openDropdown && !openDropdown.contains(e.target) && !isActionsButton) {
-                        openDropdown.classList.add('hidden');
+ 
+                       openDropdown.classList.add('hidden');
                     }
 
                     if (isActionsButton) {
-                        const button = e.target.classList.contains('actions-button') ? e.target : e.target.closest('.actions-button');
+                        const button = e.target.classList.contains('actions-button') ?
+e.target : e.target.closest('.actions-button');
                         const dropdown = button.nextElementSibling;
                         if(openDropdown && openDropdown !== dropdown) {
                            openDropdown.classList.add('hidden');
-                        }
+}
                         dropdown.classList.toggle('hidden');
-                    }
+}
                 });
 
                 renderHistoryTable();
             };
-
-            // --- Products View Initialization ---
+// --- Products View Initialization ---
             const initializeProductsView = () => {
                 const dialog = document.getElementById('productDialog');
-                const addNewBtn = document.getElementById('addNewBtn');
+const addNewBtn = document.getElementById('addNewBtn');
                 const cancelBtn = document.getElementById('cancelBtn');
                 const saveBtn = document.getElementById('saveBtn');
                 const tableBody = document.getElementById('productsTableBody');
 
                 const dialogTitle = document.getElementById('dialogTitle');
-                const productIdInput = document.getElementById('productId');
+const productIdInput = document.getElementById('productId');
                 const productNameInput = document.querySelector('#productDialog #productName'); // Scoped selector
                 const productSkuInput = document.getElementById('productSku');
-                const productLengthInput = document.getElementById('productLength');
+const productLengthInput = document.getElementById('productLength');
                 const productWidthInput = document.getElementById('productWidth');
                 const productHeightInput = document.getElementById('productHeight');
                 const productWeightInput = document.getElementById('productWeight');
-
-                const updateEmptyState = () => {
+const updateEmptyState = () => {
                     const hasProducts = tableBody.querySelector('tr[data-id]');
-                    const emptyRow = tableBody.querySelector('#empty-row');
+const emptyRow = tableBody.querySelector('#empty-row');
 
                     if (!hasProducts && !emptyRow) {
                         const newEmptyRow = document.createElement('tr');
-                        newEmptyRow.id = 'empty-row';
+newEmptyRow.id = 'empty-row';
                         newEmptyRow.innerHTML = `<td colspan="5" class="p-8 text-center text-slate-500">No products saved yet.</td>`;
                         tableBody.appendChild(newEmptyRow);
-                    } else if (hasProducts && emptyRow) {
+} else if (hasProducts && emptyRow) {
                         emptyRow.remove();
-                    }
+}
                 };
-
-                const openDialog = (product) => {
+const openDialog = (product) => {
                     if (product) {
                         dialogTitle.textContent = "Edit Product";
-                        productIdInput.value = product.id;
+productIdInput.value = product.id;
                         productNameInput.value = product.name;
                         productSkuInput.value = product.sku;
                         const dims = product.dims.split(' x ');
                         productLengthInput.value = dims[0];
-                        productWidthInput.value = dims[1];
+productWidthInput.value = dims[1];
                         productHeightInput.value = dims[2];
                         productWeightInput.value = product.weight;
                     } else {
                         dialogTitle.textContent = "Add New Product";
-                        productIdInput.value = '';
+productIdInput.value = '';
                         productNameInput.value = '';
                         productSkuInput.value = '';
                         productLengthInput.value = '';
                         productWidthInput.value = '';
                         productHeightInput.value = '';
-                        productWeightInput.value = '';
+productWeightInput.value = '';
                     }
                     dialog.classList.remove('hidden');
-                };
+};
 
                 const closeDialog = () => {
                     dialog.classList.add('hidden');
-                };
+};
                 
                 addNewBtn.addEventListener('click', () => openDialog(null));
                 cancelBtn.addEventListener('click', closeDialog);
@@ -1144,45 +1649,52 @@
                         closeDialog();
                     }
                 });
-
-                saveBtn.addEventListener('click', () => {
+saveBtn.addEventListener('click', () => {
                     const productData = {
                         id: productIdInput.value || Date.now(),
                         name: productNameInput.value,
-                        sku: productSkuInput.value,
+                      
+  sku: productSkuInput.value,
                         dims: `${productLengthInput.value} x ${productWidthInput.value} x ${productHeightInput.value}`,
                         weight: productWeightInput.value
                     };
                     
-                    const existingRow = tableBody.querySelector(`tr[data-id='${productData.id}']`);
+   
+                 const existingRow = tableBody.querySelector(`tr[data-id='${productData.id}']`);
                     
                     if (existingRow) {
                         existingRow.children[0].textContent = productData.name;
-                        existingRow.children[1].textContent = productData.sku;
+            
+            existingRow.children[1].textContent = productData.sku;
                         existingRow.children[2].textContent = productData.dims;
                         existingRow.children[3].textContent = productData.weight;
                     } else {
-                        const newRow = document.createElement('tr');
+            
+            const newRow = document.createElement('tr');
                         newRow.className = 'border-b';
-                        newRow.setAttribute('data-id', productData.id);
+newRow.setAttribute('data-id', productData.id);
                         newRow.innerHTML = `
                             <td class="p-4 align-middle font-medium">${productData.name}</td>
                             <td class="p-4 align-middle">${productData.sku}</td>
                             <td class="p-4 align-middle">${productData.dims}</td>
-                            <td class="p-4 align-middle">${productData.weight}</td>
+     
+                       <td class="p-4 align-middle">${productData.weight}</td>
                             <td class="p-4 align-middle text-right">
                                 <button class="edit-btn inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg>
+     
+                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg>
                                 </button>
-                                <button class="delete-btn inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-100 text-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              
+                  <button class="delete-btn inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-100 text-red-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 
+2v2"></path></svg>
                                 </button>
                             </td>`;
-                        tableBody.appendChild(newRow);
+tableBody.appendChild(newRow);
                     }
                     
                     closeDialog();
-                    updateEmptyState();
+updateEmptyState();
                 });
 
                 tableBody.addEventListener('click', (e) => {
@@ -1190,27 +1702,30 @@
                     const deleteBtn = e.target.closest('.delete-btn');
 
                     if (editBtn) {
-                        const row = editBtn.closest('tr');
+                        const row = 
+editBtn.closest('tr');
                         const product = {
                             id: row.dataset.id,
                             name: row.children[0].textContent,
-                            sku: row.children[1].textContent,
+               
+             sku: row.children[1].textContent,
                             dims: row.children[2].textContent,
                             weight: row.children[3].textContent
                         };
-                        openDialog(product);
+    
+                    openDialog(product);
                     }
 
                     if (deleteBtn) {
                         const row = deleteBtn.closest('tr');
-                        if (confirm('Are you sure you want to delete this product?')) {
+           
+             if (confirm('Are you sure you want to delete this product?')) {
                             row.remove();
                             updateEmptyState();
-                        }
+}
                     }
                 });
-
-                updateEmptyState();
+updateEmptyState();
             };
             
 
@@ -1219,32 +1734,34 @@
                 if (event.target.id === 'sustainabilityForm') {
                     event.preventDefault(); 
                     const form = event.target;
-                    const submitBtn = form.querySelector('.submit-btn');
+             
+       const submitBtn = form.querySelector('.submit-btn');
                     const data = new FormData(form);
                     submitBtn.innerText = 'Sending...';
                     submitBtn.disabled = true;
                     try {
-                        const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' } });
+ 
+                       const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' } });
                         if (response.ok) {
-                            modalContainer.innerHTML = `<h2>Thanks 🎉</h2><p>Your Sustainability Report is being prepared.<br>Check your inbox shortly!</p><button class="submit-btn" onclick="closeModal()">Close</button>`;
+                            modalContainer.innerHTML = `<h2>Thanks 🎉</h2><p>Your Sustainability Report is being 
+prepared.<br>Check your inbox shortly!</p><button class="submit-btn" onclick="closeModal()">Close</button>`;
                         } else {
                             const responseData = await response.json();
-                            const errorMsg = responseData.errors ? responseData.errors.map(e => e.message).join(", ") : 'Oops! There was a problem.';
+const errorMsg = responseData.errors ? responseData.errors.map(e => e.message).join(", ") : 'Oops! There was a problem.';
                             alert(errorMsg);
-                            submitBtn.innerText = 'Send My Report';
+submitBtn.innerText = 'Send My Report';
                             submitBtn.disabled = false;
                         }
                     } catch (error) {
                         alert('Oops! There was a network error.');
-                        submitBtn.innerText = 'Send My Report';
+submitBtn.innerText = 'Send My Report';
                         submitBtn.disabled = false;
                     }
                 }
             });
-
-            // --- Initial UI State ---
+// --- Initial UI State ---
             resultsContainer.innerHTML = awaitingOptimizationHTML;
-            optimizeButton.innerHTML = initialOptimizeButtonContent;
+optimizeButton.innerHTML = initialOptimizeButtonContent;
             checkFormValidity();
             setActiveNav('optimizer');
             showView('optimizer');
