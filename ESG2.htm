@@ -10,120 +10,95 @@
     <style>
         /* GOOGLE FONTS IMPORT */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
-/* CSS CUSTOM PROPERTIES (DESIGN SYSTEM) */
+        /* CSS CUSTOM PROPERTIES (DESIGN SYSTEM) */
         :root {
             /* Color Palette */
             --background: 0 0% 100%;
---foreground: 215 25% 15%;
+            --foreground: 215 25% 15%;
             --card: 0 0% 100%;
             --card-foreground: 215 25% 15%;
             --popover: 0 0% 100%;
             --popover-foreground: 215 25% 15%;
---primary: 142 65% 45%;
+            --primary: 142 65% 45%;
             --primary-foreground: 0 0% 100%;
             --primary-glow: 142 65% 55%;
             --secondary: 213 85% 97%;
             --secondary-foreground: 213 25% 25%;
---muted: 213 15% 95%;
+            --muted: 213 15% 95%;
             --muted-foreground: 213 10% 50%;
             --accent: 25 75% 95%;
             --accent-foreground: 25 75% 25%;
             --destructive: 0 75% 55%;
---destructive-foreground: 0 0% 100%;
+            --destructive-foreground: 0 0% 100%;
             --border: 213 15% 90%;
             --input: 213 15% 96%;
             --ring: 142 65% 45%;
-/* Professional ESG Colors */
+            /* Professional ESG Colors */
             --eco-green: 142 65% 45%;
---eco-light: 142 45% 85%;
+            --eco-light: 142 45% 85%;
             --eco-dark: 142 75% 35%;
             --trust-blue: 213 75% 55%;
             --trust-light: 213 45% 85%;
             --warning-amber: 45 95% 65%;
---success-emerald: 160 75% 45%;
+            --success-emerald: 160 75% 45%;
             --corporate-navy: 218 54% 20%;
             --corporate-slate: 215 15% 25%;
             --premium-gold: 45 100% 51%;
-/* Gradients */
+            /* Gradients */
             --gradient-primary: linear-gradient(135deg, hsl(var(--eco-green)), hsl(var(--primary-glow)));
---gradient-corporate: linear-gradient(to right, hsl(var(--corporate-navy)), hsl(var(--corporate-slate)));
+            --gradient-corporate: linear-gradient(to right, hsl(var(--corporate-navy)), hsl(var(--corporate-slate)));
             --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(0 0% 98%) 100%);
             --gradient-premium: linear-gradient(135deg, hsl(var(--premium-gold)) 0%, hsl(var(--eco-green)) 100%);
-/* Shadows */
+            /* Shadows */
             --shadow-soft: 0 1px 3px 0 hsl(var(--eco-green) / 0.1), 0 1px 2px 0 hsl(var(--eco-green) / 0.06);
---shadow-elevated: 0 4px 6px -1px hsl(var(--eco-green) / 0.1), 0 2px 4px -1px hsl(var(--eco-green) / 0.06);
---shadow-premium: 0 20px 25px -5px hsl(var(--eco-green) / 0.15), 0 10px 10px -5px hsl(var(--eco-green) / 0.1);
---shadow-glow: 0 0 24px hsl(var(--primary-glow) / 0.3);
+            --shadow-elevated: 0 4px 6px -1px hsl(var(--eco-green) / 0.1), 0 2px 4px -1px hsl(var(--eco-green) / 0.06);
+            --shadow-premium: 0 20px 25px -5px hsl(var(--eco-green) / 0.15), 0 10px 10px -5px hsl(var(--eco-green) / 0.1);
+            --shadow-glow: 0 0 24px hsl(var(--primary-glow) / 0.3);
             /* Transitions */
             --transition-corporate: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
-/* Border Radius */
+            /* Border Radius */
             --radius: 0.5rem;
-/* Fonts */
+            /* Fonts */
             --font-heading: 'Playfair Display', serif;
---font-body: 'Inter', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
         /* GENERAL STYLING & UTILITIES */
         body {
             font-family: var(--font-body);
-background-color: hsl(var(--background));
+            background-color: hsl(var(--background));
             color: hsl(var(--foreground));
         }
-        .font-heading { font-family: var(--font-heading);
-}
-        .text-corporate-lg { font-size: 2rem; line-height: 1.2; letter-spacing: -0.01em;
-}
-        .text-corporate-md { font-size: 1.5rem; line-height: 1.3; letter-spacing: -0.01em;
-}
-        .text-corporate-sm { font-size: 1.125rem; line-height: 1.4;
-}
-        .text-eco-green { color: hsl(var(--eco-green));
-}
-        .text-success-emerald { color: hsl(var(--success-emerald));
-}
-        .text-warning-amber { color: hsl(var(--warning-amber));
-}
-        .text-trust-blue { color: hsl(var(--trust-blue));
-}
-        .text-premium-gold { color: hsl(var(--premium-gold));
-}
-        .bg-gradient-corporate { background: var(--gradient-corporate);
-}
-        .bg-gradient-primary { background: var(--gradient-primary);
-}
-        .bg-gradient-premium { background: var(--gradient-premium);
-}
-        .bg-gradient-card { background: var(--gradient-card);
-}
-        .bg-eco-light\/20 { background-color: hsla(var(--eco-light), 0.2);
-}
-        .bg-success-emerald\/20 { background-color: hsla(var(--success-emerald), 0.2);
-}
-        .bg-muted\/30 { background-color: hsla(var(--muted), 0.3);
-}
-        .border-eco-green\/30 { border-color: hsla(var(--eco-green), 0.3);
-}
-        .border-success-emerald\/30 { border-color: hsla(var(--success-emerald), 0.3);
-}
-        .border-border { border-color: hsl(var(--border));
-}
-        .shadow-soft { box-shadow: var(--shadow-soft);
-}
-        .shadow-elevated { box-shadow: var(--shadow-elevated);
-}
-        .shadow-premium { box-shadow: var(--shadow-premium);
-}
-        .shadow-glow { box-shadow: var(--shadow-glow);
-}
-        .transition-corporate { transition: var(--transition-corporate);
-}
+        .font-heading { font-family: var(--font-heading); }
+        .text-corporate-lg { font-size: 2rem; line-height: 1.2; letter-spacing: -0.01em; }
+        .text-corporate-md { font-size: 1.5rem; line-height: 1.3; letter-spacing: -0.01em; }
+        .text-corporate-sm { font-size: 1.125rem; line-height: 1.4; }
+        .text-eco-green { color: hsl(var(--eco-green)); }
+        .text-success-emerald { color: hsl(var(--success-emerald)); }
+        .text-warning-amber { color: hsl(var(--warning-amber)); }
+        .text-trust-blue { color: hsl(var(--trust-blue)); }
+        .text-premium-gold { color: hsl(var(--premium-gold)); }
+        .bg-gradient-corporate { background: var(--gradient-corporate); }
+        .bg-gradient-primary { background: var(--gradient-primary); }
+        .bg-gradient-premium { background: var(--gradient-premium); }
+        .bg-gradient-card { background: var(--gradient-card); }
+        .bg-eco-light\/20 { background-color: hsla(var(--eco-light), 0.2); }
+        .bg-success-emerald\/20 { background-color: hsla(var(--success-emerald), 0.2); }
+        .bg-muted\/30 { background-color: hsla(var(--muted), 0.3); }
+        .border-eco-green\/30 { border-color: hsla(var(--eco-green), 0.3); }
+        .border-success-emerald\/30 { border-color: hsla(var(--success-emerald), 0.3); }
+        .border-border { border-color: hsl(var(--border)); }
+        .shadow-soft { box-shadow: var(--shadow-soft); }
+        .shadow-elevated { box-shadow: var(--shadow-elevated); }
+        .shadow-premium { box-shadow: var(--shadow-premium); }
+        .shadow-glow { box-shadow: var(--shadow-glow); }
+        .transition-corporate { transition: var(--transition-corporate); }
 
         /* LAYOUT */
-        .dashboard-layout { display: flex;
-}
+        .dashboard-layout { display: flex; }
         main {
             flex: 1;
-padding: 2rem;
+            padding: 2rem;
             overflow-y: auto;
             max-height: calc(100vh - 92px);
         }
@@ -131,7 +106,7 @@ padding: 2rem;
         /* NAVIGATION STYLES */
         .nav-button {
             display: flex;
-width: 100%;
+            width: 100%;
             justify-content: flex-start;
             height: auto;
             padding: 1rem;
@@ -141,31 +116,30 @@ width: 100%;
             border-radius: var(--radius);
             cursor: pointer;
             background-color: transparent;
-border: none;
+            border: none;
         }
         .nav-button.ghost:hover {
             background-color: hsl(var(--muted) / 0.6);
-box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow-soft);
         }
         .nav-button.active {
             background: var(--gradient-primary);
-color: hsl(var(--primary-foreground));
+            color: hsl(var(--primary-foreground));
             box-shadow: var(--shadow-premium);
         }
         .nav-button.active .nav-icon,
         .nav-button.active .nav-text,
         .nav-button.active .nav-desc {
             color: hsl(var(--primary-foreground));
-}
-        .nav-button.active .nav-desc { opacity: 0.8;
-}
+        }
+        .nav-button.active .nav-desc { opacity: 0.8; }
         .nav-button.active .nav-badge {
             background-color: hsla(0, 0%, 100%, 0.2);
-color: hsl(var(--primary-foreground));
+            color: hsl(var(--primary-foreground));
         }
         .nav-button.active::after {
             content: '';
-position: absolute;
+            position: absolute;
             left: 0;
             top: 0;
             width: 4px;
@@ -173,223 +147,137 @@ position: absolute;
             background-color: hsla(0, 0%, 100%, 0.3);
             border-top-right-radius: 9999px;
             border-bottom-right-radius: 9999px;
-}
+        }
         .nav-icon {
             transition: var(--transition-corporate);
-color: hsl(var(--muted-foreground));
+            color: hsl(var(--muted-foreground));
         }
         .nav-button:hover .nav-icon,
         .nav-button:hover .nav-text,
         .nav-button:hover .nav-desc {
             color: hsl(var(--foreground));
-}
+        }
         
         /* METRICS CARD */
         .metrics-card {
             transition: var(--transition-corporate);
-cursor: pointer;
+            cursor: pointer;
             backdrop-filter: blur(4px);
             border-left-width: 4px;
         }
         .metrics-card:hover {
             box-shadow: var(--shadow-premium);
-transform: translateY(-4px);
+            transform: translateY(-4px);
         }
         .metrics-card.variant-eco {
             border-color: hsl(var(--eco-green));
-background: linear-gradient(to bottom right, hsl(var(--eco-light) / 0.2), hsl(var(--eco-green) / 0.05));
+            background: linear-gradient(to bottom right, hsl(var(--eco-light) / 0.2), hsl(var(--eco-green) / 0.05));
             box-shadow: var(--shadow-elevated);
-}
+        }
         .metrics-card.variant-success {
             border-color: hsl(var(--success-emerald));
-background: linear-gradient(to bottom right, hsl(var(--success-emerald) / 0.2), hsl(var(--success-emerald) / 0.05));
+            background: linear-gradient(to bottom right, hsl(var(--success-emerald) / 0.2), hsl(var(--success-emerald) / 0.05));
             box-shadow: var(--shadow-elevated);
-}
+        }
         .metrics-card.variant-premium {
             border-color: hsl(var(--premium-gold));
-background: linear-gradient(to bottom right, hsl(var(--premium-gold) / 0.2), hsl(var(--premium-gold) / 0.05));
+            background: linear-gradient(to bottom right, hsl(var(--premium-gold) / 0.2), hsl(var(--premium-gold) / 0.05));
             box-shadow: var(--shadow-premium);
-}
-        .trend-up { color: hsl(var(--success-emerald));
-}
-        .trend-down { color: hsl(var(--destructive));
-}
+        }
+        .trend-up { color: hsl(var(--success-emerald)); }
+        .trend-down { color: hsl(var(--destructive)); }
     </style>
 </head>
 <body class="bg-background">
-
+    <div id="menu-overlay" class="fixed inset-0 bg-black/60 z-30 hidden lg:hidden"></div>
     <div class="min-h-screen">
-        <header class="bg-gradient-corporate border-b border-white/10 shadow-premium backdrop-blur-sm sticky top-0 z-10">
+        <header class="bg-gradient-corporate border-b border-white/10 shadow-premium backdrop-blur-sm sticky top-0 z-20">
             <div class="max-w-full mx-auto px-6 lg:px-8 py-5">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-6">
-               
-
-
-
-          <div class="flex items-center space-x-4">
+                        <button id="menu-toggle" class="lg:hidden p-2 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                        </button>
+                        <div class="flex items-center space-x-4">
                             <div class="relative">
                                 <div class="w-14 h-14 bg-gradient-premium rounded-xl flex items-center justify-center shadow-glow">
-                  
-
-
-
-                   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
-                   
-
-             </div>
-                 
-
-                <div class="absolute -top-1 -right-1 w-4 h-4 bg-success-emerald rounded-full border-2 border-white/80 animate-pulse"></div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
+                                </div>
+                                <div class="absolute -top-1 -right-1 w-4 h-4 bg-success-emerald rounded-full border-2 border-white/80 animate-pulse"></div>
                             </div>
-                
-
-            <div>
-                  
-
-               <h1 class="text-corporate-lg font-heading font-semibold text-white tracking-tight">EcoOpti ESG Pulse</h1>
+                            <div>
+                                <h1 class="text-corporate-lg font-heading font-semibold text-white tracking-tight">EcoOpti ESG Pulse</h1>
                                 <p class="text-sm text-white/80 font-medium">Enterprise Sustainability Reporting</p>
-           
-
-                 </div>
-             
-
-            </div>
+                            </div>
+                        </div>
                         <div class="hidden lg:flex items-center space-x-3">
-                            <span class="bg-white/10 
-
-backdrop-blur-sm text-white border border-white/20 font-medium px-3 py-1 rounded-md">Q2 2025 Report</span>
-                     
-
-        <span class="bg-success-emerald/20 backdrop-blur-sm text-success-emerald border border-success-emerald/30 font-medium px-3 py-1 rounded-md">✓ Verified</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white border border-white/20 font-medium px-3 py-1 rounded-md">Q2 2025 Report</span>
+                            <span class="bg-success-emerald/20 backdrop-blur-sm text-success-emerald border border-success-emerald/30 font-medium px-3 py-1 rounded-md">✓ Verified</span>
                         </div>
                     </div>
-        
-
-            <div class="flex items-center space-x-2 sm:space-x-4">
-              
-
-           <button class="hidden sm:flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-corporate font-medium px-4 py-2 rounded-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M15 2H6a2 2 0 0 
-
-0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path></svg>
-          
-
-                   Preview Report
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <button class="hidden sm:flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-corporate font-medium px-4 py-2 rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path></svg>
+                            Preview Report
                         </button>
-                        <button class="flex 
-
-items-center bg-gradient-premium hover:opacity-90 text-white font-semibold shadow-glow transition-corporate px-4 py-2 rounded-md">
-                     
-
-       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                        <button class="flex items-center bg-gradient-premium hover:opacity-90 text-white font-semibold shadow-glow transition-corporate px-4 py-2 rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
                             Export PDF
-  
-
-                      </button>
-        
-
-                 <button class="p-2.5 rounded-md bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-corporate">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 
-
-0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2.82l-.15-.08a2 2 0 
-
-0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l-.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2.82l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 
-
-2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    
-
-    </button>
-                     </div>
+                        </button>
+                        <button class="p-2.5 rounded-md bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-corporate">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2.82l-.15-.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l-.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2.82l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <div 
-
-class="dashboard-layout">
-            <nav class="bg-gradient-to-b from-card to-card/95 border-r border-border/20 min-h-screen w-80 p-6 backdrop-blur-sm hidden lg:block">
-       
-
-         <div class="mb-8">
-                    <div class="flex items-center space-x-3 mb-2">
+        <div class="dashboard-layout">
+            <nav id="mobile-nav" class="bg-gradient-to-b from-card to-card/95 border-r border-border/20 min-h-screen w-80 p-6 backdrop-blur-sm fixed top-0 left-0 z-40 h-full transform -translate-x-full lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out">
+                <div class="flex justify-between items-center mb-8">
+                    <div class="flex items-center space-x-3">
                         <div class="w-8 h-8 bg-gradient-premium rounded-lg flex items-center justify-center shadow-glow">
-    
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award-icon lucide-award"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award-icon lucide-award"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
                         </div>
-                  
-
-      <h2 class="text-corporate-sm font-heading font-semibold text-foreground">ESG Dashboard</h2>
+                        <h2 class="text-corporate-sm font-heading font-semibold text-foreground">ESG Dashboard</h2>
                     </div>
-  
-
-                   <p class="text-sm text-muted-foreground font-medium">Professional sustainability reporting</p>
+                    <button id="close-menu-btn" class="lg:hidden p-2 text-muted-foreground">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
                 </div>
-
-                <div id="nav-container" class="space-y-3">
-         
-
-           </div>
+                <p class="text-sm text-muted-foreground font-medium -mt-6 mb-8">Professional sustainability reporting</p>
                 
-      
-
-          <div class="mt-8 pt-6 border-t border-border/20">
+                <div id="nav-container" class="space-y-3"></div>
+                
+                <div class="mt-8 pt-6 border-t border-border/20">
                     <button class="w-full justify-start flex items-center bg-muted/30 border border-border/40 hover:bg-muted/60 transition-corporate px-4 py-2 rounded-md text-foreground">
-                    
-
-     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings mr-3"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>
- 
-
- 
-
-                           <span class="font-medium">Dashboard Settings</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings mr-3"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <span class="font-medium">Dashboard Settings</span>
                     </button>
                 </div>
             </nav>
 
-            <main id="main-content">
-         
-
- 
-
-      </main>
+            <main id="main-content"></main>
         </div>
-     </div>
+    </div>
 
 <script>
 // --- DATA AND CONFIGURATION ---
 const icons = {
     BarChart3: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>`,
-    Leaf: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf-icon lucide-leaf nav-icon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 
-
-10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`,
+    Leaf: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf-icon lucide-leaf nav-icon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`,
     Users: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-icon lucide-users nav-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>`,
-    Building2: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2 nav-icon"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 
-2v6a2 
-2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>`,
+    Building2: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2 nav-icon"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>`,
     FileText: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text-icon lucide-file-text nav-icon"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>`,
-    TrendingDown: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 17 13.5 8.5 
-8.5 
-13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>`,
+    TrendingDown: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>`,
     Activity: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
-    Target: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-
-stroke-width="2" class="text-eco-green"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+    Target: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-eco-green"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
     Calendar: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>`,
-    Shield: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 
-24" 
-fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    Shield: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
     TrendingUp: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
- 
-
-   AlertTriangle: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert-icon lucide-triangle-alert mr-2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>`,
-    IconUsersLarge: `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" 
-fill="none" 
-stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-users-icon lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>`,
-    IconBuildingLarge: `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-building2-icon lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 
-10h4"/><path 
-d="M10 14h4"/><path d="M10 18h4"/></svg>`,
+    AlertTriangle: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert-icon lucide-triangle-alert mr-2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>`,
+    IconUsersLarge: `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-users-icon lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>`,
+    IconBuildingLarge: `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-building2-icon lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>`,
     IconFileTextLarge: `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-file-text-icon lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>`
 };
 const navigationItems = [
@@ -424,166 +312,120 @@ const contentTemplates = {
         <div class="space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="metrics-card variant-eco rounded-lg">
-                    <div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Carbon Footprint</h3><div class="h-5 w-5 text-eco-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf-icon lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div></div>
-
-
-
-
-            <div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">1,247 kg</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">CO₂ equivalent this quarter</p><div class="flex items-center space-x-1"><span class="text-xs font-bold trend-down">↘ 18.5%</span></div></div></div>
+                    <div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Carbon Footprint</h3><div class="h-5 w-5 text-eco-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf-icon lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div></div>
+                    <div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">1,247 kg</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">CO₂ equivalent this quarter</p><div class="flex items-center space-x-1"><span class="text-xs font-bold trend-down">↘ 18.5%</span></div></div></div>
                 </div>
- 
-               <div class="metrics-card variant-success rounded-lg">
-                    <div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm 
-
-
-font-semibold text-muted-foreground uppercase tracking-wider">Resource Conservation</h3><div class="h-5 w-5 text-success-emerald">${icons.TrendingDown}</div></div>
+                <div class="metrics-card variant-success rounded-lg">
+                    <div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Resource Conservation</h3><div class="h-5 w-5 text-success-emerald">${icons.TrendingDown}</div></div>
                     <div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">2.3 tons</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Materials saved</p><div class="flex items-center space-x-1"><span class="text-xs font-bold trend-up">↗ 12.3%</span></div></div></div>
-    
-            </div>
-                <div class="metrics-card variant-premium rounded-lg">
-               
-
-
-      <div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Waste Reduction</h3><div class="h-5 w-5 text-premium-gold">${icons.Activity}</div></div>
-                    <div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">856 kg</div><div class="flex items-center justify-between mt-3"><p 
-class="text-sm text-muted-foreground font-medium">Eliminated this quarter</p><div class="flex items-center space-x-1"><span class="text-xs font-bold trend-up">↗ 8.7%</span></div></div></div>
                 </div>
-                <div class="metrics-card variant-success 
-
-
-rounded-lg">
-                     <div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">ESG Rating</h3><div class="h-5 w-5 text-eco-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2"><path d="M6 22V4a2 
-2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div></div>
+                <div class="metrics-card variant-premium rounded-lg">
+                    <div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Waste Reduction</h3><div class="h-5 w-5 text-premium-gold">${icons.Activity}</div></div>
+                    <div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">856 kg</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Eliminated this quarter</p><div class="flex items-center space-x-1"><span class="text-xs font-bold trend-up">↗ 8.7%</span></div></div></div>
+                </div>
+                <div class="metrics-card variant-success rounded-lg">
+                    <div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">ESG Rating</h3><div class="h-5 w-5 text-eco-green"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div></div>
                     <div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">8.4/10</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Overall sustainability score</p><div class="flex items-center space-x-1"><span class="text-xs font-bold trend-up">↗ 0.3 pts</span></div></div></div>
-            
-    </div>
-    
-
-
-         </div>
+                </div>
+            </div>
             <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
                 <div class="xl:col-span-2 shadow-premium border border-border bg-gradient-card backdrop-blur-sm rounded-lg p-6"><h3 class="text-corporate-sm font-heading font-semibold tracking-tight">Carbon Emissions Performance</h3><p class="text-muted-foreground font-medium mt-1">Monthly CO₂ reduction progress vs targets (kg equivalent)</p><div class="h-[350px] mt-4"><canvas id="overviewLineChart"></canvas></div></div>
-                <div class="xl:col-span-1 shadow-premium border border-border bg-gradient-card backdrop-blur-sm rounded-lg 
-p-6"><h3 class="text-corporate-sm font-heading font-semibold tracking-tight">Resource Impact Distribution</h3><p class="text-muted-foreground 
-
-
-font-medium mt-1">Breakdown of materials conservation</p><div class="h-[350px] mt-4 flex items-center justify-center"><canvas id="overviewPieChart"></canvas></div></div>
+                <div class="xl:col-span-1 shadow-premium border border-border bg-gradient-card backdrop-blur-sm rounded-lg p-6"><h3 class="text-corporate-sm font-heading font-semibold tracking-tight">Resource Impact Distribution</h3><p class="text-muted-foreground font-medium mt-1">Breakdown of materials conservation</p><div class="h-[350px] mt-4 flex items-center justify-center"><canvas id="overviewPieChart"></canvas></div></div>
             </div>
             <div class="shadow-premium border-l-4 border-l-eco-green bg-gradient-card backdrop-blur-sm rounded-lg p-6">
                 <div class="flex items-center justify-between pb-4">
                     <div>
-           
-        
-
-
-      <div class="text-corporate-lg font-heading font-semibold tracking-tight flex items-center space-x-3">${icons.Target} <span>Executive Summary</span></div>
+                        <div class="text-corporate-lg font-heading font-semibold tracking-tight flex items-center space-x-3">${icons.Target} <span>Executive Summary</span></div>
                         <p class="text-base font-medium mt-2 text-muted-foreground">Q2 2025 Sustainability Performance Analysis & Strategic Recommendations</p>
                     </div>
-                    <div class="flex 
-space-x-2">
-        
-
-
-                 <span class="flex items-center text-xs font-semibold bg-eco-light/20 text-eco-green border border-eco-green/30 px-2 py-1 rounded-md">${icons.Calendar} Q2 2025</span>
+                    <div class="flex space-x-2">
+                        <span class="flex items-center text-xs font-semibold bg-eco-light/20 text-eco-green border border-eco-green/30 px-2 py-1 rounded-md">${icons.Calendar} Q2 2025</span>
                         <span class="flex items-center text-xs font-semibold bg-success-emerald/20 text-success-emerald border border-success-emerald/30 px-2 py-1 rounded-md">${icons.Shield} Verified</span>
                     </div>
-      
-        
-
-
-  </div>
-                 <div class="space-y-6 pt-2">
+                </div>
+                <div class="space-y-6 pt-2">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div><h4 class="font-heading font-semibold text-success-emerald flex items-center text-base">${icons.TrendingUp} Key Achievements</h4><ul class="text-sm text-muted-foreground space-y-2 font-medium list-none pl-0 mt-3"><li><span class="inline-block w-2 h-2 bg-success-emerald rounded-full mr-3"></span>18.5% reduction 
-in carbon emissions</li><li><span class="inline-block w-2 h-2 bg-success-emerald rounded-full 
-
-
-mr-3"></span>2.3 tons of materials conserved</li><li><span class="inline-block w-2 h-2 bg-success-emerald rounded-full mr-3"></span>ESG rating up to 8.4/10</li><li class="text-nowrap"><span class="inline-block w-2 h-2 bg-success-emerald rounded-full mr-3"></span>23% improvement in packaging efficiency</li></ul></div>
-                        <div><h4 class="font-heading font-semibold text-warning-amber flex items-center text-base">${icons.AlertTriangle} Strategic Focus Areas</h4><ul class="text-sm text-muted-foreground space-y-2 font-medium list-none pl-0 mt-3"><li><span class="inline-block w-2 h-2 bg-warning-amber rounded-full mr-3"></span>Supply chain transparency</li><li><span class="inline-block w-2 h-2 bg-warning-amber rounded-full mr-3"></span>Employee engagement</li><li><span class="inline-block w-2 h-2 bg-warning-amber rounded-full mr-3"></span>Renewable energy adoption</li><li><span class="inline-block w-2 h-2 
-bg-warning-amber rounded-full mr-3"></span>Third-party ESG verification</li></ul></div>
-    
-
- 
-                   <div><h4 class="font-heading font-semibold text-trust-blue flex items-center text-base space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-icon lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg> <span>Strategic Initiatives</span></h4><ul class="text-sm text-muted-foreground space-y-2 font-medium list-none pl-0 mt-3"><li><span class="inline-block w-2 h-2 bg-trust-blue rounded-full mr-3"></span>Green logistics program</li><li><span class="inline-block w-2 h-2 bg-trust-blue 
-rounded-full mr-3"></span>Biodegradable packaging</li><li><span class="inline-block w-2 h-2 bg-trust-blue rounded-full mr-3"></span>Carbon neutrality roadmap</li><li><span class="inline-block w-2 h-2 bg-trust-blue rounded-full mr-3"></span>Stakeholder reporting enhancement</li></ul></div>
+                        <div><h4 class="font-heading font-semibold text-success-emerald flex items-center text-base">${icons.TrendingUp} Key Achievements</h4><ul class="text-sm text-muted-foreground space-y-2 font-medium list-none pl-0 mt-3">
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-success-emerald rounded-full mr-3 mt-[6px]"></span><span>18.5% reduction in carbon emissions</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-success-emerald rounded-full mr-3 mt-[6px]"></span><span>2.3 tons of materials conserved</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-success-emerald rounded-full mr-3 mt-[6px]"></span><span>ESG rating up to 8.4/10</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-success-emerald rounded-full mr-3 mt-[6px]"></span><span>23% improvement in packaging efficiency</span></li>
+                        </ul></div>
+                        <div><h4 class="font-heading font-semibold text-warning-amber flex items-center text-base">${icons.AlertTriangle} Strategic Focus Areas</h4><ul class="text-sm text-muted-foreground space-y-2 font-medium list-none pl-0 mt-3">
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-warning-amber rounded-full mr-3 mt-[6px]"></span><span>Supply chain transparency</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-warning-amber rounded-full mr-3 mt-[6px]"></span><span>Employee engagement</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-warning-amber rounded-full mr-3 mt-[6px]"></span><span>Renewable energy adoption</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-warning-amber rounded-full mr-3 mt-[6px]"></span><span>Third-party ESG verification</span></li>
+                        </ul></div>
+                        <div><h4 class="font-heading font-semibold text-trust-blue flex items-center text-base space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-icon lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg> <span>Strategic Initiatives</span></h4><ul class="text-sm text-muted-foreground space-y-2 font-medium list-none pl-0 mt-3">
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-trust-blue rounded-full mr-3 mt-[6px]"></span><span>Green logistics program</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-trust-blue rounded-full mr-3 mt-[6px]"></span><span>Biodegradable packaging</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-trust-blue rounded-full mr-3 mt-[6px]"></span><span>Carbon neutrality roadmap</span></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 inline-block w-2 h-2 bg-trust-blue rounded-full mr-3 mt-[6px]"></span><span>Stakeholder reporting enhancement</span></li>
+                        </ul></div>
                     </div>
-              
-
- 
-     <div class="bg-muted/30 rounded-xl p-6 space-y-4">
+                    <div class="bg-muted/30 rounded-xl p-6 space-y-4">
                         <h4 class="font-heading font-semibold text-foreground text-base">Progress Toward ESG Targets</h4>
-       
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div><div class="flex justify-between 
-
-text-sm 
-font-medium"><span>Carbon Neutrality 2030</span><span class="text-eco-green font-semibold">67%</span></div><div class="w-full bg-gray-200 rounded-full h-2.5 mt-1"><div class="h-2.5 rounded-full" style="width: 67%;
-background-color: hsl(var(--eco-green));"></div></div><p class="text-xs text-muted-foreground mt-1">On track to meet 2030 target</p></div>
-                            <div><div class="flex justify-between text-sm font-medium"><span>Sustainable Packaging</span><span class="text-success-emerald font-semibold">84%</span></div><div class="w-full bg-gray-200 rounded-full h-2.5 mt-1"><div class="h-2.5 rounded-full" style="width: 84%;
-background-color: hsl(var(--success-emerald));"></div></div><p class="text-xs text-muted-foreground mt-1">Ahead of 80% target</p></div>
-                            <div><div class="flex justify-between text-sm font-medium"><span>Supply Chain Transparency</span><span class="text-warning-amber font-semibold">45%</span></div><div class="w-full bg-gray-200 rounded-full h-2.5 mt-1"><div class="h-2.5 rounded-full" style="width: 45%;
-background-color: hsl(var(--warning-amber));"></div></div><p class="text-xs text-muted-foreground mt-1">Requires acceleration</p></div>
-                         </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div><div class="flex justify-between text-sm font-medium"><span>Carbon Neutrality 2030</span><span class="text-eco-green font-semibold">67%</span></div><div class="w-full bg-gray-200 rounded-full h-2.5 mt-1"><div class="h-2.5 rounded-full" style="width: 67%; background-color: hsl(var(--eco-green));"></div></div><p class="text-xs text-muted-foreground mt-1">On track to meet 2030 target</p></div>
+                            <div><div class="flex justify-between text-sm font-medium"><span>Sustainable Packaging</span><span class="text-success-emerald font-semibold">84%</span></div><div class="w-full bg-gray-200 rounded-full h-2.5 mt-1"><div class="h-2.5 rounded-full" style="width: 84%; background-color: hsl(var(--success-emerald));"></div></div><p class="text-xs text-muted-foreground mt-1">Ahead of 80% target</p></div>
+                            <div><div class="flex justify-between text-sm font-medium"><span>Supply Chain Transparency</span><span class="text-warning-amber font-semibold">45%</span></div><div class="w-full bg-gray-200 rounded-full h-2.5 mt-1"><div class="h-2.5 rounded-full" style="width: 45%; background-color: hsl(var(--warning-amber));"></div></div><p class="text-xs text-muted-foreground mt-1">Requires acceleration</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>`,
     environmental: `
-        <div 
-
-
-
-class="space-y-8">
+        <div class="space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="metrics-card variant-eco rounded-lg"><div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Total CO₂ Emissions</h3></div><div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">1,247 kg</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Current quarter emissions</p><span class="text-xs font-bold trend-down">↘ 18.5%</span></div></div></div>
-                <div class="metrics-card variant-success rounded-lg"><div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase 
-
-
-
-tracking-wider">Energy Conservation</h3></div><div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">2,340 kWh</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Logistics optimization savings</p><span class="text-xs font-bold trend-up">↗ 15.2%</span></div></div></div>
+                <div class="metrics-card variant-success rounded-lg"><div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Energy Conservation</h3></div><div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">2,340 kWh</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Logistics optimization savings</p><span class="text-xs font-bold trend-up">↗ 15.2%</span></div></div></div>
                 <div class="metrics-card variant-eco rounded-lg"><div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Renewable Materials</h3></div><div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">67%</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Biodegradable packaging ratio</p><span class="text-xs font-bold trend-up">↗ 12%</span></div></div></div>
-                <div class="metrics-card variant-premium rounded-lg"><div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm 
-
-
-
-font-semibold text-muted-foreground uppercase tracking-wider">Water Conservation</h3></div><div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">1,850 L</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Process optimization savings</p<span class="text-xs font-bold trend-up">↗ 8.3%</span></div></div></div>
+                <div class="metrics-card variant-premium rounded-lg"><div class="p-4 pb-3 flex flex-row items-center justify-between"><h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Water Conservation</h3></div><div class="p-4 pt-0"><div class="text-corporate-md font-bold text-foreground font-heading tracking-tight">1,850 L</div><div class="flex items-center justify-between mt-3"><p class="text-sm text-muted-foreground font-medium">Process optimization savings</p<span class="text-xs font-bold trend-up">↗ 8.3%</span></div></div></div>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="shadow-premium border border-border bg-gradient-card backdrop-blur-sm rounded-lg p-6"><h3 class="text-corporate-sm font-heading font-semibold tracking-tight">Carbon Emissions Trajectory</h3><p class="text-muted-foreground font-medium mt-1">Monthly CO₂ emissions (kg)</p><div class="h-[350px] mt-4"><canvas id="envLineChart"></canvas></div></div>
-         
-
-
-
-       <div class="shadow-premium border border-border bg-gradient-card backdrop-blur-sm rounded-lg p-6"><h3 class="text-corporate-sm font-heading font-semibold tracking-tight">Waste Reduction Progress</h3><p class="text-muted-foreground font-medium mt-1">Quarterly waste elimination (kg)</p><div class="h-[350px] mt-4"><canvas id="envBarChart"></canvas></div></div>
+                <div class="shadow-premium border border-border bg-gradient-card backdrop-blur-sm rounded-lg p-6"><h3 class="text-corporate-sm font-heading font-semibold tracking-tight">Waste Reduction Progress</h3><p class="text-muted-foreground font-medium mt-1">Quarterly waste elimination (kg)</p><div class="h-[350px] mt-4"><canvas id="envBarChart"></canvas></div></div>
             </div>
             <div class="shadow-premium border-l-4 border-l-eco-green bg-gradient-card backdrop-blur-sm rounded-lg p-6">
                 <div class="pb-4"><h3 class="text-corporate-sm font-heading font-semibold tracking-tight flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf-icon lucide-leaf text-eco-green"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg> <span>Environmental Impact Analysis</span></h3><p class="text-base font-medium text-muted-foreground mt-2">Detailed breakdown of environmental performance metrics and trends</p></div>
-
-
-
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-                    <div class="bg-eco-light/20 rounded-xl p-4 border border-border"><h4 class="font-semibold text-eco-green mb-3">Carbon Footprint Reduction</h4><div class="space-y-2"><div class="flex justify-between text-sm"><span>Scope 
-1 Emissions</span><span class="font-semibold">-22%</span></div><div class="flex justify-between text-sm"><span>Scope 2 Emissions</span><span class="font-semibold">-18%</span></div><div class="flex justify-between text-sm"><span>Transportation</span><span class="font-semibold">-15%</span></div></div></div>
-                    <div class="bg-success-emerald/20 rounded-xl p-4 border border-border"><h4 class="font-semibold text-success-emerald mb-3">Resource Efficiency</h4><div class="space-y-2"><div class="flex justify-between text-sm"><span>Material 
-
-
-Utilization</span><span class="font-semibold">+23%</span></div><div class="flex justify-between text-sm"><span>Packaging Efficiency</span><span class="font-semibold">+31%</span></div><div class="flex justify-between text-sm"><span>Waste Diversion</span><span class="font-semibold">+28%</span></div></div></div>
-                 </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-eco-light/20 rounded-xl p-4 border border-border"><h4 class="font-semibold text-eco-green mb-3">Carbon Footprint Reduction</h4><div class="space-y-2"><div class="flex justify-between text-sm"><span>Scope 1 Emissions</span><span class="font-semibold">-22%</span></div><div class="flex justify-between text-sm"><span>Scope 2 Emissions</span><span class="font-semibold">-18%</span></div><div class="flex justify-between text-sm"><span>Transportation</span><span class="font-semibold">-15%</span></div></div></div>
+                    <div class="bg-success-emerald/20 rounded-xl p-4 border border-border"><h4 class="font-semibold text-success-emerald mb-3">Resource Efficiency</h4><div class="space-y-2"><div class="flex justify-between text-sm"><span>Material Utilization</span><span class="font-semibold">+23%</span></div><div class="flex justify-between text-sm"><span>Packaging Efficiency</span><span class="font-semibold">+31%</span></div><div class="flex justify-between text-sm"><span>Waste Diversion</span><span class="font-semibold">+28%</span></div></div></div>
+                </div>
             </div>
         </div>`,
-    social: `<div 
-class="flex items-center justify-center h-full"><div class="text-center py-24"><div class="bg-gradient-card rounded-2xl p-12 shadow-premium border border-border"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-users-icon lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg><h3 class="text-corporate-md font-heading font-semibold text-foreground mb-2">Social Impact Metrics</h3><p class="text-muted-foreground font-medium">Coming soon - Employee engagement, community impact, and social responsibility metrics</p></div></div></div>`,
-    governance: `<div class="flex items-center justify-center h-full"><div class="text-center py-24"><div class="bg-gradient-card rounded-2xl p-12 shadow-premium border border-border"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" 
-stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-building2-icon lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg><h3 class="text-corporate-md font-heading font-semibold text-foreground mb-2">Governance Framework</h3><p class="text-muted-foreground font-medium">Coming soon - Corporate policies, compliance metrics, and risk management</p></div></div></div>`,
-    reports: `<div class="flex items-center justify-center h-full"><div class="text-center py-24"><div class="bg-gradient-card rounded-2xl p-12 shadow-premium border border-border"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground 
-mx-auto mb-4 lucide lucide-file-text-icon lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><h3 class="text-corporate-md font-heading font-semibold text-foreground mb-2">Report Generation</h3><p class="text-muted-foreground font-medium">Coming soon - PDF exports, custom reports, and stakeholder communications</p></div></div></div>`,
+    social: `<div class="flex items-center justify-center h-full"><div class="text-center py-24"><div class="bg-gradient-card rounded-2xl p-12 shadow-premium border border-border"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-users-icon lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg><h3 class="text-corporate-md font-heading font-semibold text-foreground mb-2">Social Impact Metrics</h3><p class="text-muted-foreground font-medium">Coming soon - Employee engagement, community impact, and social responsibility metrics</p></div></div></div>`,
+    governance: `<div class="flex items-center justify-center h-full"><div class="text-center py-24"><div class="bg-gradient-card rounded-2xl p-12 shadow-premium border border-border"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-building2-icon lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg><h3 class="text-corporate-md font-heading font-semibold text-foreground mb-2">Governance Framework</h3><p class="text-muted-foreground font-medium">Coming soon - Corporate policies, compliance metrics, and risk management</p></div></div></div>`,
+    reports: `<div class="flex items-center justify-center h-full"><div class="text-center py-24"><div class="bg-gradient-card rounded-2xl p-12 shadow-premium border border-border"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-muted-foreground mx-auto mb-4 lucide lucide-file-text-icon lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><h3 class="text-corporate-md font-heading font-semibold text-foreground mb-2">Report Generation</h3><p class="text-muted-foreground font-medium">Coming soon - PDF exports, custom reports, and stakeholder communications</p></div></div></div>`,
 };
 // --- JAVASCRIPT LOGIC ---
 document.addEventListener("DOMContentLoaded", function() {
     const navContainer = document.getElementById('nav-container');
     const mainContent = document.getElementById('main-content');
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const menuOverlay = document.getElementById('menu-overlay');
+
     let activeCharts = [];
+
+    // --- RESPONSIVE NAVIGATION ---
+    const openMenu = () => {
+        mobileNav.classList.remove('-translate-x-full');
+        mobileNav.classList.add('translate-x-0');
+        menuOverlay.classList.remove('hidden');
+    };
+
+    const closeMenu = () => {
+        mobileNav.classList.remove('translate-x-0');
+        mobileNav.classList.add('-translate-x-full');
+        menuOverlay.classList.add('hidden');
+    };
+
+    menuToggle.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
 
     // Helper to get CSS variables
     const getCssVariable = (variable) => getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
@@ -595,11 +437,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // --- CUSTOM TOOLTIP AND SCALE CONFIGS ---
     const baseTooltipOptions = {
-      
-
-
-
-  enabled: true,
+        enabled: true,
         backgroundColor: `hsl(${getCssVariable('--card')})`,
         padding: 12,
         cornerRadius: 8,
@@ -612,24 +450,19 @@ document.addEventListener("DOMContentLoaded", function() {
         ...baseTooltipOptions,
         titleColor: `hsl(${getCssVariable('--card-foreground')})`,
         bodyColor: `hsl(${getCssVariable('--card-foreground')})`,
-      
-
-
-
-  titleFont: { weight: '600', size: 14 },
+        titleFont: { weight: '600', size: 14 },
         bodyFont: { weight: '500', size: 13 },
         callbacks: {
             label: function(context) {
-                const label = context.label ||
-'';
+                const label = context.label || '';
                 const value = context.parsed || 0;
                 const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
-const percentage = (value / total * 100).toFixed(0);
+                const percentage = (value / total * 100).toFixed(0);
                 return `${label}: ${percentage}%`;
-}
+            }
         }
     };
-const valueTooltipOptions = {
+    const valueTooltipOptions = {
         ...baseTooltipOptions,
         titleColor: `hsl(${getCssVariable('--foreground')})`,
         titleFont: { weight: '600', size: 14 },
@@ -637,13 +470,13 @@ const valueTooltipOptions = {
         callbacks: {
             label: function(context) {
                 return `Value: ${context.parsed.y}`;
-},
+            },
             labelTextColor: function(context) {
                 return `hsl(${getCssVariable('--eco-green')})`;
-}
+            }
         }
     };
-const commonXAxis = {
+    const commonXAxis = {
         border: { color: `hsl(${getCssVariable('--border')})` },
         grid: { display: false },
         ticks: {
@@ -651,7 +484,7 @@ const commonXAxis = {
             font: { size: 12, weight: 500 },
         },
     };
-const lineChartYAxis = {
+    const lineChartYAxis = {
         min: 0,
         max: 2500,
         border: { color: `hsl(${getCssVariable('--border')})` },
@@ -660,13 +493,9 @@ const lineChartYAxis = {
             stepSize: 500,
             color: `hsl(${getCssVariable('--muted-foreground')})`,
             font: { size: 12, weight: 500 },
-  
-
-
-
-      },
+        },
     };
-const barChartYAxis = {
+    const barChartYAxis = {
         min: 0,
         max: 600,
         border: { color: `hsl(${getCssVariable('--border')})` },
@@ -675,214 +504,155 @@ const barChartYAxis = {
             stepSize: 150,
             color: `hsl(${getCssVariable('--muted-foreground')})`,
             font: { size: 12, weight: 500 },
-  
-
-
-
-      },
+        },
     };
-// Function to destroy existing charts
+    // Function to destroy existing charts
     const destroyCharts = () => {
         activeCharts.forEach(chart => chart.destroy());
-activeCharts = [];
+        activeCharts = [];
     };
     
     // --- CHART RENDERING FUNCTIONS ---
     const renderOverviewCharts = () => {
         const lineCtx = document.getElementById('overviewLineChart')?.getContext('2d');
-const pieCtx = document.getElementById('overviewPieChart')?.getContext('2d');
+        const pieCtx = document.getElementById('overviewPieChart')?.getContext('2d');
         
         if(lineCtx) {
             const ecoGreen = `hsl(${getCssVariable('--eco-green')})`;
-const lineChart = new Chart(lineCtx, {
+            const lineChart = new Chart(lineCtx, {
                 type: 'line',
                 data: carbonEmissionsData,
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-  
-
-
-
-                  scales: { x: commonXAxis, y: lineChartYAxis },
+                    scales: { x: commonXAxis, y: lineChartYAxis },
                     plugins: { legend: { display: false }, tooltip: valueTooltipOptions, datalabels: { display: false } },
                     elements: {
-                     
-
-
-
-   line: {
+                        line: {
                             tension: 0.4,
                             borderColor: ecoGreen,
                             borderWidth: 3,
-         
-
-
-
-               },
+                        },
                         point: {
                             radius: 5,
                             backgroundColor: ecoGreen,
-  
-
-
-
-                          borderWidth: 2,
+                            borderWidth: 2,
                             hoverRadius: 7,
                             hoverBorderWidth: 3,
-               
-
-
-
-             hoverBackgroundColor: 'white',
+                            hoverBackgroundColor: 'white',
                             hoverBorderColor: ecoGreen,
                         }
                     }
-             
-
-
-
-   }
+                }
             });
             activeCharts.push(lineChart);
-}
+        }
         if(pieCtx) {
             const pieColors = [
                 `hsl(${getCssVariable('--eco-green')})`, `hsl(${getCssVariable('--trust-blue')})`,
                 `hsl(${getCssVariable('--premium-gold')})`, `hsl(${getCssVariable('--success-emerald')})`,
                 `hsl(${getCssVariable('--corporate-navy')})`
             ];
-resourceSavingsData.datasets[0].backgroundColor = pieColors;
+            resourceSavingsData.datasets[0].backgroundColor = pieColors;
 
             const pieChart = new Chart(pieCtx, {
                 type: 'pie',
                 data: resourceSavingsData,
                 options: {
                     responsive: true,
-                    
-
-
-
-maintainAspectRatio: false,
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
                         tooltip: pieTooltipOptions,
-                        datalabels: 
-
-
-
-{ display: false }
+                        datalabels: { display: false }
                     }
                 }
             });
-activeCharts.push(pieChart);
+            activeCharts.push(pieChart);
         }
     };
     
     const renderEnvironmentalCharts = () => {
         const lineCtx = document.getElementById('envLineChart')?.getContext('2d');
-const barCtx = document.getElementById('envBarChart')?.getContext('2d');
+        const barCtx = document.getElementById('envBarChart')?.getContext('2d');
         
         if(lineCtx) {
             const ecoGreen = `hsl(${getCssVariable('--eco-green')})`;
-const lineChart = new Chart(lineCtx, {
+            const lineChart = new Chart(lineCtx, {
                 type: 'line', 
                 data: carbonEmissionsData, 
                 options: { 
                     responsive: true, 
-                   
-
-
-
- maintainAspectRatio: false, 
+                    maintainAspectRatio: false, 
                     scales: { x: commonXAxis, y: lineChartYAxis }, 
                     plugins: { legend: { display: false }, tooltip: valueTooltipOptions, datalabels: { display: false } },
                     elements: { 
-              
-
-
-
-          line: { tension: 0.4, borderColor: ecoGreen, borderWidth: 3 }, 
+                        line: { tension: 0.4, borderColor: ecoGreen, borderWidth: 3 }, 
                         point: { radius: 5, backgroundColor: ecoGreen, borderWidth: 2, hoverRadius: 7, hoverBorderWidth: 3, hoverBackgroundColor: 'white', hoverBorderColor: ecoGreen } 
                     } 
                 }
-   
-
-
-
-         });
+            });
             activeCharts.push(lineChart);
-}
+        }
         if(barCtx) {
             wasteReductionData.datasets[0].backgroundColor = `hsl(${getCssVariable('--success-emerald')})`;
-wasteReductionData.datasets[0].borderRadius = { topLeft: 6, topRight: 6 };
+            wasteReductionData.datasets[0].borderRadius = { topLeft: 6, topRight: 6 };
 
             const barChart = new Chart(barCtx, {
                 type: 'bar',
                 data: wasteReductionData,
                 options: { 
                     responsive: true, 
-             
-
-
-
-       maintainAspectRatio: false, 
+                    maintainAspectRatio: false, 
                     scales: { x: commonXAxis, y: barChartYAxis }, 
                     plugins: { 
                         legend: { display: false }, 
-             
-
-
-
-           tooltip: valueTooltipOptions,
+                        tooltip: valueTooltipOptions,
                         datalabels: { display: false }
                     } 
                 }
             });
-activeCharts.push(barChart);
+            activeCharts.push(barChart);
         }
     };
     
     // Function to switch content
     window.switchContent = (sectionId) => {
         destroyCharts();
-mainContent.innerHTML = contentTemplates[sectionId] || `<div>Content for ${sectionId} not found.</div>`;
+        mainContent.innerHTML = contentTemplates[sectionId] || `<div>Content for ${sectionId} not found.</div>`;
 
         // Render charts if the new section has them
         if (sectionId === 'overview') {
             renderOverviewCharts();
-} else if (sectionId === 'environmental') {
+        } else if (sectionId === 'environmental') {
             renderEnvironmentalCharts();
-}
+        }
         
         // Update active nav item
         const navButtons = navContainer.querySelectorAll('.nav-button');
-navButtons.forEach(button => {
+        navButtons.forEach(button => {
             if (button.dataset.section === sectionId) {
                 button.classList.remove('ghost');
                 button.classList.add('active');
             } else {
                 button.classList.remove('active');
                 button.classList.add('ghost');
-    
-
-
-
-        }
+            }
         });
+        
+        // Close menu on mobile after selection
+        if (window.innerWidth < 1024) {
+            closeMenu();
+        }
     };
-// Build navigation
+    // Build navigation
     navigationItems.forEach(item => {
         const badgeHTML = item.badge ? `<span class="nav-badge text-xs px-2 py-0.5 rounded-full font-medium ml-2 flex-shrink-0 ${
             item.badge === 'Live' ? 'bg-success-emerald/20 text-success-emerald' :
             item.badge === 'New' ? 'bg-premium-gold/20 text-premium-gold' :
             'bg-muted/30 text-muted-foreground'
         }">${item.badge}</span>` : '';
-        const button = 
-
-
-
-document.createElement('button');
+        const button = document.createElement('button');
         button.className = 'nav-button ghost';
         button.dataset.section = item.id;
         button.onclick = () => switchContent(item.id);
@@ -890,23 +660,15 @@ document.createElement('button');
             <div class="flex items-start space-x-3 w-full">
                 ${icons[item.icon]}
                 <div class="text-left flex-1 min-w-0">
-      
-
-
-
-               <div class="font-semibold text-sm leading-tight mb-1 flex items-center justify-between">
+                    <div class="font-semibold text-sm leading-tight mb-1 flex items-center justify-between">
                         <span class="truncate nav-text text-foreground">${item.label}</span>
                         ${badgeHTML}
                     </div>
-       
-
-
-
-              <p class="text-xs leading-tight font-medium nav-desc text-muted-foreground group-hover:text-foreground/80">${item.description}</p>
+                    <p class="text-xs leading-tight font-medium nav-desc text-muted-foreground group-hover:text-foreground/80">${item.description}</p>
                 </div>
             </div>
         `;
-navContainer.appendChild(button);
+        navContainer.appendChild(button);
     });
     
     // Initial load
